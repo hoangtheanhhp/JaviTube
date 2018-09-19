@@ -19,6 +19,7 @@ class CreateSongsTable extends Migration
             $table->string('code')->unique();
             $table->integer('user_id');
             $table->integer('approve_id');
+            $table->integer('singer_id')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
