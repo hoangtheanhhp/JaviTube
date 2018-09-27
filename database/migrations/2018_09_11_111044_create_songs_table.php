@@ -16,9 +16,9 @@ class CreateSongsTable extends Migration
         Schema::create('songs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('code')->unique();
+            $table->string('youtube_id')->unique();
             $table->integer('user_id');
-            $table->integer('approve_id');
+            $table->integer('approver_id')->nullable();
             $table->integer('singer_id')->nullable();
             $table->softDeletes();
             $table->timestamps();

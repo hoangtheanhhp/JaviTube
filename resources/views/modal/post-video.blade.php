@@ -7,14 +7,20 @@
             <div class="modal-body">
                         <div class="login-right">
                             <h3>Thông tin bài hát</h3>
-                            <form action="{{ route('song.store') }}" method="post">
+                            <form action="{{ route('songs.store') }}" method="post">
+                                @csrf
                                 <div>
                                     <h4>Tên bài hát :</h4>
                                     <input type="text" name="name" required="">
                                 </div>
                                 <div>
                                     <h4>Link Youtube:</h4>
-                                    <input type="text" name="code" required="">
+                                    <input type="text" name="link" required="">
+                                    @if ($errors->has('link'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('link') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                                 <div>
                                     <h4>Tên ca sĩ:</h4>
@@ -28,11 +34,11 @@
                                 </div>
                                 <div>
                                     <h4>Sub Nhật:</h4>
-                                    <textarea name="lyric_jan"></textarea>
+                                    <textarea name="lyric_ja"></textarea>
                                 </div>
                                 <div>
                                     <h4>Sub Việt:</h4>
-                                    <textarea name="lyric_vie"></textarea>
+                                    <textarea name="lyric_vi"></textarea>
                                 </div>
                                 <div>
                                     <input type="submit" value="Gửi" >

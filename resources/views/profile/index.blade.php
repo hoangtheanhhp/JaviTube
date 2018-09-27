@@ -10,7 +10,7 @@
                 <p>Following</p>
             </div>
             <div class="col-md-6">
-                <img class="img-circle" src="" alt="">
+                <img class="img-thumbnail" src="{{ Auth::user()->avatar }}" alt="">
             </div>
         </div>
     </div>
@@ -38,12 +38,14 @@
                                 <div class="col-md-3 product-men">
                                 <div class="video">
                                     <div class="video-image">
-                                        <img src="http://img.youtube.com/vi/AnFVQ9QctYI/0.jpg" alt="{{ $song->name }}">
-                                        <img class="ic-play" src="{{ asset("images/ic_play.png") }}">
-                                        <span class="product-new-top">New</span>
+                                        <a href="{{ route('songs.show', $song->id) }}">
+                                            <img src="http://img.youtube.com/vi/{{ $song->youtube_id }}/hqdefault.jpg" alt="{{ $song->name }}">
+                                            <img class="ic-play" src="{{ asset("images/ic_play.png") }}">
+                                            <span class="product-new-top">New</span>
+                                        </a>
                                     </div>
                                     <div class="video-info ">
-                                        <h4><a href="https://www.youtube.com/watch?v={{ $song->code }}">{{ $song->name }}</a></h4>
+                                        <h4><a href="https://www.youtube.com/watch?v={{ $song->youtube_id }}?t=0">{{ $song->name }}</a></h4>
                                     </div>
                                 </div>
                             </div>
