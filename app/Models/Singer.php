@@ -15,4 +15,9 @@ class Singer extends Model
     protected $dates = [
         'deleted_at', 'birthday'
     ];
+
+    public function songs()
+    {
+        return $this->hasMany(Song::class);
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Song extends Model
 {
@@ -14,4 +15,9 @@ class Song extends Model
     protected $dates = [
         'deleted_at'
     ];
+
+    public function singer()
+    {
+        return $this->belongsTo(Song::class);
+    }
 }
