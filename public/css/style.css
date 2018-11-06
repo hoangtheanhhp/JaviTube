@@ -1254,7 +1254,7 @@ h2.resp-accordion {
 .resp-content-active, .resp-accordion-active {
    display: block;
 }
-.product-men img {
+.product-video img {
     width: 100%;
 }
 .product-easy {
@@ -2975,8 +2975,8 @@ td.invert-image a img {
 	.video-info h4 a {
 		font-size: 17px;
 	}
-	.product-men {
-		padding: 0 10px;
+	.product-video {
+		padding: 10px 10px;
 	}
 	.coupons-gd h3 {
 		font-size: 19px;
@@ -3235,10 +3235,10 @@ td.invert-image a img {
 		top: 36%;
 		left: 10%;
 	}
-	.product-men {
+	.product-video {
 		float: left;
 		width: 33.333%;
-		margin: 25px 0 0;
+		margin: 25px;
 	}
 	.resp-tabs-list {
 		margin: 0 0 1em 0;
@@ -4046,7 +4046,7 @@ td.invert-image a img {
 	.men-wear-right h4 {
 		margin: 0px 0 10px;
 	}
-	.product-men {
+	.product-video {
 		float: left;
 		width: 33.333%;
 		padding:0 5px ;
@@ -4143,8 +4143,8 @@ td.invert-image a img {
 	.video-info h4 a {
 		font-size: 14px;
 	}
-	.product-men {
-		margin: 18px 0 0;
+	.product-video {
+		margin: 10px;
 	}
 	.value {
 		width: 37px;
@@ -4280,10 +4280,10 @@ td.invert-image a img {
 		float: right;
 		width: 51%;
 	}
-	.product-men {
+	.product-video {
 		float: left;
 		width: 50%;
-		padding: 0 5px;
+		padding: 5px;
 	}
 	.pignose-layerslider .slide-visual .script-wrap {
 		left:250px;
@@ -4376,7 +4376,7 @@ td.invert-image a img {
 	.resp-tab-item {
 		margin: 0 9px;
 	}
-	.product-men {
+	.product-video {
 		float: none;
 		width: 57%;
 		padding: 0 5px;
@@ -4598,7 +4598,7 @@ td.invert-image a img {
 	.resp-tab-item {
 		font-size: 14px;
 	}
-	.product-men {
+	.product-video {
 		float: none;
 		width: 65%;
 	}
@@ -4758,7 +4758,7 @@ td.invert-image a img {
 	.resp-tab-item {
 		margin: 0 5px;
 	}
-	.product-men {
+	.product-video {
 		float: none;
 		width: 74%;
 	}
@@ -4935,7 +4935,7 @@ td.invert-image a img {
 		font-size: 13px;
 		margin: 0 2px;
 	}
-	.product-men {
+	.product-video {
 		float: none;
 		width: 100%;
 	}
@@ -5024,8 +5024,8 @@ td.invert-image a img {
 	.ele-bottom-grid h3 {
 		font-size: 21px;
 	}
-	.product-men {
-		padding: 0;
+	.product-video {
+    margin: 5px;
 	}
 	.checkout h3 {
 		margin: 0 0 1em;

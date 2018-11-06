@@ -27,7 +27,7 @@
                 <div class="resp-tabs-container">
                     <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
                         <div class="row">
-                            <div class="col-md-3 product-men">
+                            <div class="col-md-3 product-video">
                                 <div class="video post">
                                     <a href="#" data-toggle="modal" data-target="#modalPostVideo">
                                         <img src="{{ asset('/images/plus.png') }}">
@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                             @foreach($myPosts as $song)
-                                <div class="col-md-3 product-men">
+                                <div class="col-md-3 product-video">
                                 <div class="video">
                                     <div class="video-image">
                                         <a href="{{ route('songs.show', $song->id) }}">
@@ -54,7 +54,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
-                        <div class="col-md-3 product-men">
+                        <div class="col-md-3 product-video">
                             <div class="men-pro-item simpleCart_shelfItem">
                                 <div class="">
                                     <img src="http://img.youtube.com/vi/AnFVQ9QctYI/0.jpg" alt="" class="pro-image-front">
@@ -77,7 +77,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 product-men">
+                        <div class="col-md-3 product-video">
                             <div class="men-pro-item simpleCart_shelfItem">
                                 <div class="men-thumb-item">
                                     <img src="images/w2.png" alt="" class="pro-image-front">
@@ -100,7 +100,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 product-men">
+                        <div class="col-md-3 product-video">
                             <div class="men-pro-item simpleCart_shelfItem">
                                 <div class="men-thumb-item">
                                     <img src="images/mw1.png" alt="" class="pro-image-front">
@@ -123,7 +123,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 product-men">
+                        <div class="col-md-3 product-video">
                             <div class="men-pro-item simpleCart_shelfItem">
                                 <div class="men-thumb-item">
                                     <img src="images/mw3.png" alt="" class="pro-image-front">
@@ -146,7 +146,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 product-men yes-marg">
+                        <div class="col-md-3 product-video yes-marg">
                             <div class="men-pro-item simpleCart_shelfItem">
                                 <div class="men-thumb-item">
                                     <img src="images/ep2.png" alt="" class="pro-image-front">
@@ -169,7 +169,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 product-men yes-marg">
+                        <div class="col-md-3 product-video yes-marg">
                             <div class="men-pro-item simpleCart_shelfItem">
                                 <div class="men-thumb-item">
                                     <img src="images/ep3.png" alt="" class="pro-image-front">
@@ -196,7 +196,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
-                        <div class="col-md-3 product-men">
+                        <div class="col-md-3 product-video">
                             <div class="men-pro-item simpleCart_shelfItem">
                                 <div class="men-thumb-item">
                                     <img src="images/g1.png" alt="" class="pro-image-front">
@@ -219,7 +219,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 product-men">
+                        <div class="col-md-3 product-video">
                             <div class="men-pro-item simpleCart_shelfItem">
                                 <div class="men-thumb-item">
                                     <img src="images/g2.png" alt="" class="pro-image-front">
@@ -242,7 +242,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 product-men">
+                        <div class="col-md-3 product-video">
                             <div class="men-pro-item simpleCart_shelfItem">
                                 <div class="men-thumb-item">
                                     <img src="images/g3.png" alt="" class="pro-image-front">
@@ -265,7 +265,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 product-men">
+                        <div class="col-md-3 product-video">
                             <div class="men-pro-item simpleCart_shelfItem">
                                 <div class="men-thumb-item">
                                     <img src="images/mw2.png" alt="" class="pro-image-front">
@@ -288,7 +288,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 product-men yes-marg">
+                        <div class="col-md-3 product-video yes-marg">
                             <div class="men-pro-item simpleCart_shelfItem">
                                 <div class="men-thumb-item">
                                     <img src="images/w4.png" alt="" class="pro-image-front">
@@ -311,7 +311,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 product-men yes-marg">
+                        <div class="col-md-3 product-video yes-marg">
                             <div class="men-pro-item simpleCart_shelfItem">
                                 <div class="men-thumb-item">
                                     <img src="images/w3.png" alt="" class="pro-image-front">
