@@ -5,9 +5,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h3><span>{{ Auth::user()->name }}</span></h3>
+                <h3><span>{{ $user->name }}</span></h3>
+                @if ($user->isOwn())
+                    <a href="#" data-toggle="modal" data-target="#updateProfile"><span>Update Profile</span>
+                @else
                 <p>Follow</p>
                 <p>Following</p>
+
+                @endif
             </div>
             <div class="col-md-6">
                 <img class="img-thumbnail" src="{{ Auth::user()->avatar }}" alt="">
@@ -342,5 +347,6 @@
     </div>
 </div>
 @include('modal.post-video')
+@include('modal.user-update')
 @include('includes.footer')
 @endsection
