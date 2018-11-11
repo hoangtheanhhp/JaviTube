@@ -7,9 +7,6 @@
             <div class="modal-body modal-spa">
                 <div class="login-grids">
                     <div class="login">
-                        <div class="login-bottom">
-                            <a href="{{ route("redirect", "facebook") }}">Login with FB</a>
-                        </div>
                         <div class="login-right">
                             <h3>Sign in with your account</h3>
                             <form>

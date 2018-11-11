@@ -35,4 +35,8 @@ class Song extends Model
     {
         return $this->lyrics->where('type', Lyric::RJ)->first();
     }
+    public function be_liked()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

@@ -42,9 +42,24 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class, 'following', 'followed_id');
     }
+    
+    public function like()
+    {
+        return $this->belongsToMany(Song::class,'like');
+    }
 
     public function isOwn()
     {
         return $this->id === Auth::user()->id;
+    }
+    public function liked($id)
+    {
+        return !is_null(
+            \DB::table('like')->where('user_id',$this->id)->where('song_id',$id)->first()
+        );
+    }
+    public function isAdmin()
+    {
+        return $this->type===2;
     }
 }
