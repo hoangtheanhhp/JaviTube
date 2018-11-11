@@ -6,16 +6,25 @@
         <div class="row">
             <div class="col-md-6">
                 <h3><span>{{ $user->name }}</span></h3>
+                <h5><span>{{ $user->followed->count() }}<span> Follow</h5>
+                <h5><span>{{ $user->following->count() }}<span> Followers</h5>
                 @if ($user->isOwn())
-                    <a href="#" data-toggle="modal" data-target="#updateProfile"><span>Update Profile</span>
+                    <a href="#" data-toggle="modal" data-target="#updateProfile">
+                        <span>Update profile</span>
+                    </a>
+                    <a href="#" data-toggle="modal" data-target="#changePassword">
+                        <span>Change Password</span>
+                    </a>
                 @else
-                <p>Follow</p>
-                <p>Following</p>
-
+                    @if ($user->isFollowing()) 
+                        <a href="{{ route('users.follow', $user->id) }}">Following</a>
+                    @else 
+                        <a href="{{ route('users.follow', $user->id) }}">Follow</a>
+                    @endif
                 @endif
             </div>
             <div class="col-md-6">
-                <img class="img-thumbnail" src="{{ Auth::user()->avatar }}" alt="">
+                <img class="img-thumbnail" width="100px" src="{{ asset('storage/avatar/'.$user->avatar) }}" alt="">
             </div>
         </div>
     </div>
@@ -346,7 +355,8 @@
         </div>
     </div>
 </div>
-@include('modal.post-video')
 @include('modal.user-update')
+@include('modal.post-video')
+@include('modal.change-password')
 @include('includes.footer')
 @endsection

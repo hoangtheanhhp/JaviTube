@@ -9,7 +9,7 @@ class Song extends Model
 {
     use SoftDeletes;
     protected $fillable = [
-        'name', 'youtube_id', 'user_id', 'approver_id'
+        'name', 'youtube_id', 'user_id',
     ];
 
     protected $dates = [
