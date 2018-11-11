@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <div>
+        <form method="post">
+            <div>
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Nguyen Van A" name="name">
+            </div>
+            <div>
+                <label for="class">Class</label>
+                <input type="text" class="form-control" id="class" placeholder="Toan Tin" name="class">
+            </div>
+            <div>
+                <label for="name">University</label>
+                <input type="text" class="form-control" id="university" placeholder="Hanoi Science and Technology" name="university">
+            </div>
+            <div>
+                <label for="hobby">Your Hobby</label>
+                <select multiple="true" class="form-control" id="hobby" name="hobby[]">
+                    <option>Reading</option>
+                    <option>Watching movie</option>
+                    <option>Football</option>
+                    <option>Guitar</option>
+                    <option>Chatting</option>
+                    <option>Gaming</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="description">Description about yourself</label>
+                <textarea name="description" class="form-control" id="description" rows="3"></textarea>
+            </div>
+            <button type='submit' name='submit'>Submit</button>
+        </form>
+
+    </div>
+
+</body>
+
+</html>

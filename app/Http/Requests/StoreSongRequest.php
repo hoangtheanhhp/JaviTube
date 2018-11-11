@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\YoutubeLink;
 
 class StoreSongRequest extends FormRequest
 {
@@ -25,9 +26,8 @@ class StoreSongRequest extends FormRequest
     {
         return [
             "name" => "required",
-            "code" => "requierd",
+            "link" => ["required", new YoutubeLink], 
             "singer_id" => "nullable",
-            ""
         ];
     }
 }

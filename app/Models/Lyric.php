@@ -8,8 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Lyric extends Model
 {
   use SoftDeletes;
+  const JP = 1,
+        VI = 2,
+        RJ = 3;
+  protected $dates = [
+      'deleted_at'
+  ];
   protected $fillable = [
-      'data',
+      'lyric', 'user_id', 'type'
   ];
 
 }
