@@ -28,11 +28,15 @@ class Song extends Model
 
     public function getOriginalLyricAttribute()
     {
-        return $this->lyrics->where('type', Lyric::JP)->first();
+        $lyric = $this->lyrics->where('type', Lyric::JP)->first();
+        if ($lyric) return $lyric->lyric;
+        return null;
     }
 
-    public function getRomajiLyricAttribute()
+    public function getVietnamLyricAttribute()
     {
-        return $this->lyrics->where('type', Lyric::RJ)->first();
+        $lyric = $this->lyrics->where('type', Lyric::VI)->first();
+        if ($lyric) return $lyric->lyric;
+        return null;
     }
 }
