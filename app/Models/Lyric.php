@@ -9,13 +9,12 @@ class Lyric extends Model
 {
   use SoftDeletes;
   const JP = 1,
-        VI = 2,
-        RJ = 3;
+        VI = 2;
   protected $dates = [
       'deleted_at'
   ];
   protected $fillable = [
-      'lyric', 'user_id', 'type'
+      'lyric', 'user_id', 'type', 'song_id'
   ];
 
 }

@@ -7,9 +7,6 @@
             <div class="modal-body modal-spa">
                 <div class="login-grids">
                     <div class="login">
-                        <div class="login-bottom">
-                            <a href="{{ route("redirect", "facebook") }}">Login with FB</a>
-                        </div>
                         <div class="login-right">
                             <h3>Sign in with your account</h3>
                             <form>
@@ -33,7 +30,6 @@
                         </div>
                         <div class="clearfix"></div>
                     </div>
-                    <p>By logging in you agree to our <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></p>
                 </div>
             </div>
         </div>

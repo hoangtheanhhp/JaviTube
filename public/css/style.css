@@ -36,6 +36,14 @@ h1,h2,h3,h4,h5,h6{
 p{
 	margin:0;
 }
+p.lyric {
+  height: auto;
+  max-height: 300px;
+  overflow: auto;
+  word-break: normal !important;
+  word-wrap: normal !important;
+  white-space: pre !important;
+}
 ul{
 	margin:0;
 	padding:0;
@@ -5110,6 +5118,6 @@ td.invert-image a img {
 	.header-left {
     width: 46%;
     margin: 5px auto 6px;
-}
+  }
 }
 /*-- //responsive media queries --*/

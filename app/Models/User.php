@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class User extends Authenticatable
 {
@@ -35,16 +36,22 @@ class User extends Authenticatable
 
     public function following()
     {
-        return $this->belongsToMany(User::class, 'following', 'following_id');
+        return $this->belongsToMany(User::class, 'following', 'followed_id', 'following_id');
     }
 
     public function followed()
     {
-        return $this->belongsToMany(User::class, 'following', 'followed_id');
+        return $this->belongsToMany(User::class, 'following', 'following_id', 'followed_id');
     }
 
     public function isOwn()
     {
         return $this->id === Auth::user()->id;
+    }
+
+    public function isFollowing()
+    {
+        $follow =DB::table('following')->where('following_id', Auth::user()->id)->where('followed_id', $this->id)->first();
+        return $follow;
     }
 }
