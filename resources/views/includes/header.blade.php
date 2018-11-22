@@ -34,8 +34,10 @@
 			</ul>
 		</div>
 		@else
-			<a href={{ route('users.show', ['id' => Auth::user()->id]) }}> {{ Auth::user()->name }} </a>
-
+			<div><a href={{ route('users.show', Auth::user()->id) }}>
+				<img class="img img-responsive" width="20px" src="{{ asset('storage/avatar/'.Auth::user()->avatar) }}">
+				<span>{{ Auth::user()->name }}</span>
+			</div></a>
 		@endif
 		<div class="clearfix"></div>
 	</div>

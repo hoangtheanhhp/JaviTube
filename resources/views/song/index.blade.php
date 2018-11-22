@@ -35,8 +35,8 @@
           </li>
         </ul>
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade in active" id="originalLyric">{{ $song->original_lyric }}</div>
-            <div role="tabpanel" class="tab-pane fade" id="romajiLyric">{{ $song->romaji_lyric }}</div>
+            <div role="tabpanel" class="tab-pane fade in active" id="originalLyric"><p class="lyric">{{ $song->original_lyric }}</pre></div>
+            <div role="tabpanel" class="tab-pane fade" id="romajiLyric"><pre>{{ $song->vietnam_lyric }}</pre></div>
             <div role="tabpanel" class="tab-pane fade" id="Events"></div>
         </div>
     </div>
