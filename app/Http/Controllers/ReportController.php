@@ -15,5 +15,18 @@ class ReportController extends Controller
         ];
         return view('report.index', $data);
     }
+    public function show($id)
+    {
+        $report = Report::findOrFail($id);
+        $data = [
+            'report' => $report,
+        ];
+        return view('report.show', $data);
+    }
+    public function remove($id)
+    {
+        Report::detroy($id);
+        return redirect()->back();
+    }
     
 }
