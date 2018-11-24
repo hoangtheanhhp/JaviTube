@@ -39,4 +39,8 @@ class Song extends Model
         if ($lyric) return $lyric->lyric;
         return null;
     }
+    public function be_liked()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

@@ -5,6 +5,16 @@
     <div class="col-md-6">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $song->youtube_id }}?rel=0&autoplay=1&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
+    <div>
+        @if (Auth::user()->liked($song->id))
+        <a href="{{$song->id}}/unlike">unlike</a>
+        @else
+        <a href="{{$song->id}}/like">like</a>
+        @endif
+        <h1>
+            {{\DB::table('like')->where('song_id',$song->id)->count()}} liked!!!
+        </h1>
+    </div>
     <div class="col-md-6">
         <ul class="nav nav-tabs">
           <li class="dropdown">
