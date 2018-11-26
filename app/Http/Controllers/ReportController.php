@@ -28,5 +28,9 @@ class ReportController extends Controller
         Report::detroy($id);
         return redirect()->back();
     }
+    public function create(Request $request)
+    {
+        
+    }
     
 }

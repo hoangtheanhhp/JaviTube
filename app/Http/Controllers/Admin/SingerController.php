@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Singer;
-use App\Http\Requests\AddSingerRequest;
 
 class SingerController extends Controller
 {
@@ -14,14 +13,21 @@ class SingerController extends Controller
 		$data = [
 			'singers' => $singers,
 		];
-		return view('singer', $data);
+		return view('admin.singer', $data);
 	}
 	public function destroy($id){
         Singer::destroy($id);
         return back();
     }
-    public function create(AddSingerRequest $request)
+    public function create(Request $request)
     {
-        return Singer::create($request->all());
+        $model = new Singer();
+            // ['name' => $request->name,'birthday'=> $request->birthday,'description' => $request->description]);
+        $model->name = $request->name;
+        $model->birthday = $request->birthday;
+        $model->description = $request->description;
+        $model->avatar = 'a';
+        $model->save();
+        return redirect()->back();
     }
 }

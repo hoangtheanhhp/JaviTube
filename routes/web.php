@@ -28,10 +28,10 @@ Route::group(['prefix' => 'admin/','as' =>'.admin','middleware'=>'admin'], funct
 
     Route::get('users', ['as' => 'user', 'uses' => 'Admin\UserController@index']);
     Route::delete('users/{id}', ['as' => 'user', 'uses' => 'Admin\UserController@destroy']);
-    Route::patch('users/{id}', ['as' => 'user', 'uses' => 'Admin\UserController@edit']);
+    Route::patch('users/{id}', ['as' => 'user', 'uses' => 'Admin\UserController@toAdmin']);
 
     Route::get('singer', ['as' => 'singer', 'uses' => 'Admin\SingerController@index']);
     Route::delete('singer/{id}', ['as' => 'Singer', 'uses' => 'Admin\SingerController@destroy']);
-    Route::post('singer/new', ['as' => 'Singer', 'uses' => 'Admin\SingerController@create']);
+    Route::post('singer/add', ['as' => 'Singer', 'uses' => 'Admin\SingerController@create']);
     
 });
