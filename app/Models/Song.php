@@ -43,4 +43,9 @@ class Song extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function searchSongs($request) {
+        return $this->where("name","LIKE","%$request%")->get();
+    }
+
 }
