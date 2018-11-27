@@ -22,10 +22,10 @@ class Report extends Model
     }
     public function songs()
     {
-        return $this->hasMany(Song::class);
+        return $this->hasOne(Song::class);
     }
     public function users()
     {
-        return $this->hasMany(User::class);
+        return $this->hasOne(User::class);
     }
 }

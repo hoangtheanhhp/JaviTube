@@ -18,6 +18,7 @@ class ReportController extends Controller
     public function show($id)
     {
         $report = Report::findOrFail($id);
+        $report->save();
         $data = [
             'report' => $report,
         ];
@@ -30,7 +31,14 @@ class ReportController extends Controller
     }
     public function create(Request $request)
     {
-        
+        $re = new Report();
+        if ($request->content){$re->content = $request->content;}
+        else {return redirect()->back();}
+        if ($request->song_id){$re->song_id = $request->song_id;}
+        else {return redirect()->back();}
+        $re->user_id = Auth::user()->id;
+        $re->save();
+        redirect()->back();
     }
     
 }
