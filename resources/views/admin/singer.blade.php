@@ -4,7 +4,7 @@
     <form action="singer/add" method="post">
         @csrf
         name:<br><input type="text" name="name"><br>
-        avatar:<br><input type="text" name="avatar"><br>
+        {{-- avatar:<br><input type="text" name="avatar"><br> --}}
         birthday<br><input type="date" name="birthday"><br>
         description:<br><input type="text" name="description"><br>
         <input type="submit" value="Submit">
@@ -12,7 +12,12 @@
     @foreach ($singers as $singer)
     <ul>
         <li>singer: {{ $singer->name }}</li>
-        <li><a href="singer/delete/{{ $singer->id }}">Delete singer</a></li>
+        <form action="singer/{{ $singer->id }}" method="post">
+            @csrf
+            {{ method_field('DELETE') }}
+            <button class="btn btn-danger" type="submit">Delete singer</button>
+        </form> 
+            
     </ul>
     @endforeach
     @include('includes.footer')

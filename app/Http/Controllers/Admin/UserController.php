@@ -13,7 +13,7 @@ class UserController extends Controller
 		$data = [
 			'users' => $users,
 		];
-		return view('user', $data);
+		return view('admin.user', $data);
 	}
 	public function destroy($id){
 		User::destroy($id);
