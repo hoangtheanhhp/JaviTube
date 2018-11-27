@@ -38,6 +38,11 @@
 				<img class="img img-responsive" width="20px" src="{{ asset('storage/avatar/'.Auth::user()->avatar) }}">
 				<span>{{ Auth::user()->name }}</span>
 			</a></div>
+			@if (Auth::user()->isAdmin()) 
+				<div>
+					<a href="{{ route('admin.home') }}">Admin</a>
+				</div>
+			@endif
 			<div>
 				<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

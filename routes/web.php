@@ -16,7 +16,8 @@ Route::group(['prefix' => 'songs/', 'as' => 'songs.'], function() {
     Route::get('{id}/like', ['as' => 'like', 'uses' => 'SongController@like']);
     Route::get('{id}/unlike', ['as' => 'like', 'uses' => 'SongController@unlike']);
 });
-Route::group(['prefix' => 'admin/','as' =>'.admin','middleware'=>'admin'], function () {
+Route::group(['prefix' => 'admin/','as' =>'admin.','middleware'=>'admin'], function () {
+    Route::get('/', ['as' => 'home', 'uses' => 'Admin\UserController@index']);
     Route::group(['prefix' => 'report/','as' => '.report'], function () {
         Route::get('/',['as' => 'index', 'uses' => 'ReportController@index']);
         Route::get('{id}', ['as' => 'show', 'uses' => 'ReportController@show']);
