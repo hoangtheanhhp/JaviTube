@@ -8,9 +8,9 @@
       </div>
         <div>
         @if (Auth::user()->liked($song->id))
-        <a href="{{$song->id}}/unlike">unlike</a>
+        <a href="{{route('songs.unlike',$song->id)}}">unlike</a>
         @else
-        <a href="{{$song->id}}/like">like</a>
+        <a href="{{route('songs.like',$song->id)}}">like</a>
         @endif
         <h1>
             {{\DB::table('like')->where('song_id',$song->id)->count()}} liked!!!

@@ -48,6 +48,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Song::class,'like');
     }
+    public function likeSinger()
+    {
+        return $this->belongsToMany(Singer::class,'likeSinger');
+    }
 
     public function isOwn()
     {
@@ -57,6 +61,12 @@ class User extends Authenticatable
     {
         return !is_null(
             \DB::table('like')->where('user_id',$this->id)->where('song_id',$id)->first()
+        );
+    }
+    public function likedSinger($id)
+    {
+        return !is_null(
+            \DB::table('likeSinger')->where('user_id',$this->id)->where('singer_id',$id)->first()
         );
     }
     public function isAdmin()
