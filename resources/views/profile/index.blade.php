@@ -63,24 +63,18 @@
                                             <div class="col-md-10">
                                             <h4><a href="https://www.youtube.com/watch?v={{ $song->youtube_id }}?t=0">{{ $song->name }}</a></h4>
                                             </div>
-                                            <div class="col-md-2">
-                                                <div class="dropdown">
-                                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                                                  <span class="caret"></span></button>
-                                                <ul class="dropdown-menu">
-                                                <li><a href="#">HTML</a></li>
-                                                <li><a href="#">CSS</a></li>
-                                                <li><a href="#">JavaScript</a></li>
-                                                </ul>
-                                                </div>
-                                                <div class="dropdown">
-                                                    <a data-toggle="dropdown" class="dropdown-toggle">&#8942;</a>
-                                                    <ul>
+                                            @if ($song->user->isOwn())
+                                                <div class="col-md-2">
+                                                    <div class="dropdown">
+                                                    <a class="dropdown-toggle" type="button" data-toggle="dropdown">&#8942;
+                                                      </a>
+                                                    <ul class="dropdown-menu">
                                                         <li><a href="#">Edit</a></li>
                                                         <li><a href="#">Remove</a></li>
                                                     </ul>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -381,4 +375,41 @@
 @include('modal.post-video')
 @include('modal.change-password')
 @include('includes.footer')
+@endsection
+
+@section('script')
+    @parent
+    <script>
+        $(document).ready(function() {     
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $('.action-follow').click(function(){    
+                var user_id = $(this).data('id');
+                var cObj = $(this);
+                var c = $(this).parent("div").find(".tl-follower").text();
+
+
+                $.ajax({
+                   type:'POST',
+                   url:'/ajaxRequest',
+                   data:{user_id:user_id},
+                   success:function(data){
+                      console.log(data.success);
+                      if(jQuery.isEmptyObject(data.success.attached)){
+                        cObj.find("strong").text("Follow");
+                        cObj.parent("div").find(".tl-follower").text(parseInt(c)-1);
+                      }else{
+                        cObj.find("strong").text("UnFollow");
+                        cObj.parent("div").find(".tl-follower").text(parseInt(c)+1);
+                      }
+                   }
+                });
+            });      
+            
+        }); 
+    </script>
 @endsection

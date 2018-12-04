@@ -5,18 +5,16 @@
 			<h1><a href="index.html"><img src="images/logo3.jpg"></a></h1>
 		</div>
 		<div class="col-md-6 header-middle">
-			<form>
+			<form action="{{ route('search') }}" method="POST">
+				@csrf
 				<div class="search">
-					<input type="search" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}" required="">
+					<input type="search" value="Search" required="">
 				</div>
 				<div class="section_room">
-					<select id="country" onchange="change_country(this.value)" class="frm-field required">
-						<option value="null">All categories</option>
-						<option value="null">Electronics</option>     
-						<option value="AX">kids Wear</option>
-						<option value="AX">Men's Wear</option>
-						<option value="AX">Women's Wear</option>
-						<option value="AX">Watches</option>
+					<select class="frm-field required">
+						<option value="0">Singer</option>
+						<option value="1">Song</option>
+						<option value="2">User</option>
 					</select>
 				</div>
 				<div class="sear-sub">
