@@ -18,12 +18,17 @@ class Song extends Model
 
     public function singer()
     {
-        return $this->belongsTo(Song::class);
+        return $this->belongsTo(Singer::class);
     }
 
     public function lyrics()
     {
         return $this->hasMany(Lyric::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function getOriginalLyricAttribute()
