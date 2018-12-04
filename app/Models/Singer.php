@@ -20,4 +20,8 @@ class Singer extends Model
     {
         return $this->hasMany(Song::class);
     }
+
+    public function searchSingers($request) {
+        return $this->where("name","LIKE","%$request%")->get();
+    }
 }

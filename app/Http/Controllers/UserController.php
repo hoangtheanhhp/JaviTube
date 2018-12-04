@@ -52,7 +52,7 @@ class UserController extends Controller
     public function changePassword(ChangePasswordRequest $request) {
         $user = User::findOrFail(Auth::user()->id);
         if ($user->password !== bcrypt($request->password)) return redirect()->back()->with(['error' => 'Password incorrect']);
-        $user->password = $request->new_password;
+        $user->password = bcrypt($request->new_password);
         $user->save();
         return redirect()->back();
     }

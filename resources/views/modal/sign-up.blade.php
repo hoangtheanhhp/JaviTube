@@ -11,17 +11,41 @@
                             <h3>SIGN UP</h3>
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
+                                 <div class="sign-in">
+                                    <h4>Email :</h4>
+                                    <input type="text" name="name" value="{{ old('name') }}" required>
+                                    @if ($errors->has('name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
                                 <div class="sign-in">
                                     <h4>Email :</h4>
-                                    <input type="text" name="email" required>
+                                    <input type="text" name="email" value="{{ old('email') }}" required>
+                                    @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                                 <div class="sign-in">
                                     <h4>Password :</h4>
                                     <input type="password" name="password" required="">
+                                    @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                                 <div class="sign-in">
                                     <h4>Re-password :</h4>
                                     <input type="password" name="password_confirmation" required="">
+                                    @if ($errors->has('password_confirmation'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                                 <div class="sign-in">
                                     <input type="submit" value="SIGNUP">

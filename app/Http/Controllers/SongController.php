@@ -80,4 +80,6 @@ class SongController extends Controller
         Auth::user()->like()->detach($song);
        return redirect()->back();
     }
+
+    
 }

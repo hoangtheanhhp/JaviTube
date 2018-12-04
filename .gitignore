@@ -2,7 +2,6 @@
 /public/hot
 /public/storage
 /public/uploads
-/public/images
 /public/svg
 /resources/views/smart_shop
 /storage/*.key

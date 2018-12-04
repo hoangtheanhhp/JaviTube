@@ -20,11 +20,11 @@ class Report extends Model
     public function seen(){
         $this->seen = true;
     }
-    public function songs()
+    public function song()
     {
         return $this->hasOne(Song::class);
     }
-    public function users()
+    public function user()
     {
         return $this->hasOne(User::class);
     }
