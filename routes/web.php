@@ -9,7 +9,7 @@ Route::group(['prefix' => 'users/', 'as' => 'users.' , 'middleware' => 'auth'], 
 	Route::get('follow/{id}', ['as' => 'follow', 'uses' => 'UserController@toggleFollow']);
 	Route::post('changePassword', ['as' => 'change.password', 'uses' => 'UserController@changePassword']);
 });
-Route::post('/',['as'=>'search', 'uses' => 'UserController@index']);
+Route::get('/search',['as'=>'search', 'uses' => 'SearchController@index']);
 Route::group(['prefix' => 'singers/', 'as' => 'singer.'], function() {
     Route::get('{id}', ['as' => 'index', 'uses' => 'SingerController@index']);
     Route::get('{id}/like', ['as' => 'like', 'uses' => 'SingerController@like']);
@@ -35,8 +35,9 @@ Route::group(['prefix' => 'admin/','as' =>'admin.','middleware'=>'admin'], funct
     Route::delete('users/{id}', ['as' => 'user', 'uses' => 'Admin\UserController@destroy']);
     Route::patch('users/{id}', ['as' => 'user', 'uses' => 'Admin\UserController@toAdmin']);
 
-    Route::get('singer', ['as' => 'singer', 'uses' => 'Admin\SingerController@index']);
-    Route::delete('singer/{id}', ['as' => 'Singer', 'uses' => 'Admin\SingerController@destroy']);
-    Route::post('singer/add', ['as' => 'Singer', 'uses' => 'Admin\SingerController@create']);
-    
+    Route::group(['prefix' => 'singers', 'as' => 'singers.'], function () {
+        Route::get('/', ['as' => 'index', 'uses' => 'Admin\SingerController@index']);
+        Route::delete('/destroy/{id}', ['as' => 'destroy', 'uses' => 'Admin\SingerController@destroy']);
+        Route::post('/store', ['as' => 'store', 'uses' => 'Admin\SingerController@store']);
+    });
 });

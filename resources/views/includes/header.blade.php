@@ -5,17 +5,9 @@
 			<h1><a href="index.html"><img src="images/logo3.jpg"></a></h1>
 		</div>
 		<div class="col-md-6 header-middle">
-			<form action="{{ route('search') }}" method="POST">
-				@csrf
+			<form action="{{ route('search') }}" method="GET">
 				<div class="search">
-					<input type="search" value="Search" required="">
-				</div>
-				<div class="section_room">
-					<select class="frm-field required">
-						<option value="0">Singer</option>
-						<option value="1">Song</option>
-						<option value="2">User</option>
-					</select>
+					<input type="search" name="search" placeholder="Search" required="">
 				</div>
 				<div class="sear-sub">
 					<input type="submit" value=" ">

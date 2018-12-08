@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     @include('includes.top-nav')
-    <form action="singer/add" method="post">
+    <form action="{{ route('admin.singers.store') }}" method="post">
         @csrf
         name:<br><input type="text" name="name"><br>
         {{-- avatar:<br><input type="text" name="avatar"><br> --}}
