@@ -24,4 +24,8 @@ class Singer extends Model
     public function searchSingers($request) {
         return $this->where("name","LIKE","%$request%")->get();
     }
+    public function like()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

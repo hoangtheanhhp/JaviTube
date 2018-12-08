@@ -9,12 +9,17 @@ Route::group(['prefix' => 'users/', 'as' => 'users.' , 'middleware' => 'auth'], 
 	Route::get('follow/{id}', ['as' => 'follow', 'uses' => 'UserController@toggleFollow']);
 	Route::post('changePassword', ['as' => 'change.password', 'uses' => 'UserController@changePassword']);
 });
-
+Route::post('/',['as'=>'search', 'uses' => 'UserController@index']);
+Route::group(['prefix' => 'singers/', 'as' => 'singer.'], function() {
+    Route::get('{id}', ['as' => 'index', 'uses' => 'SingerController@index']);
+    Route::get('{id}/like', ['as' => 'like', 'uses' => 'SingerController@like']);
+    Route::get('{id}/unlike', ['as' => 'unlike', 'uses' => 'SingerController@unlike']);
+});
 Route::group(['prefix' => 'songs/', 'as' => 'songs.'], function() {
     Route::post('store', ['as' => 'store', 'uses' => 'SongController@store']);
     Route::get('{id}', ['as' => 'show', 'uses' => 'SongController@show']);
     Route::get('{id}/like', ['as' => 'like', 'uses' => 'SongController@like']);
-    Route::get('{id}/unlike', ['as' => 'like', 'uses' => 'SongController@unlike']);
+    Route::get('{id}/unlike', ['as' => 'unlike', 'uses' => 'SongController@unlike']);
 });
 Route::group(['prefix' => 'admin/','as' =>'admin.','middleware'=>'admin'], function () {
     Route::get('/', ['as' => 'home', 'uses' => 'Admin\UserController@index']);

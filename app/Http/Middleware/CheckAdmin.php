@@ -17,10 +17,12 @@ class CheckAdmin
     public function handle($request, Closure $next)
     {   
         if (Auth::user()===null){
-            abort('403');
+            // abort('403');
+            return redirect()->back();
         }
         if(!Auth::user()->isAdmin()){
-            abort('403');
+            return redirect()->back();
+            // abort('403');
         }
         return $next($request);
     }
