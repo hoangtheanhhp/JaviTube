@@ -19,7 +19,7 @@ class SingerController extends Controller
         Singer::destroy($id);
         return back();
     }
-    public function create(Request $request)
+    public function store(Request $request)
     {
         $model = new Singer();
             // ['name' => $request->name,'birthday'=> $request->birthday,'description' => $request->description]);

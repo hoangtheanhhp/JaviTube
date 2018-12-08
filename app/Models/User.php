@@ -78,4 +78,8 @@ class User extends Authenticatable
         $follow =DB::table('following')->where('following_id', Auth::user()->id)->where('followed_id', $this->id)->first();
         return $follow;
     }
+
+    public static function search($request) {
+        return User::where("name","LIKE","%".$request."%")->get();
+    }
 }
