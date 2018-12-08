@@ -84,7 +84,18 @@ label{
     text-align: left;
 }
 .header-right {
-    text-align: right;
+    text-align: center;
+}
+._1qv9 {
+    align-items: center;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+}
+._1qv9 a { 
+    margin-left: 30%;
+    text-decoration: none;
+    width: 100%;
 }
 .header-left{
     text-align: left;	
@@ -174,11 +185,14 @@ label{
     width: 10%;		
 }
 .header-middle {
-    border: 1px solid #eee;
+  border: 1px solid #eee;
 	padding:0;
 }
 .header-right ul {
     margin-top: 20px;
+}
+.text_align {
+  text-align: center;
 }
 .section_room select option {
     line-height: 1.8em;
@@ -3136,7 +3150,6 @@ td.invert-image a img {
 }
 	.header-left,.header-right {
 		float: left;
-		width: 31%;
 	}
 	.header-middle {
 		float: left;
