@@ -32,7 +32,7 @@ class SongController extends Controller
             }
             if ($request->lyric_vi) {
                 Lyric::create([
-                    'lyric' => $request->lyric_vi,
+                    'lyric' =>(int) $request->lyric_vi,
                     'user_id' => Auth::user()->id,
                     'type' => Lyric::VI, 
                     'song_id' => $song->id, 

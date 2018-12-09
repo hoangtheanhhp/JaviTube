@@ -9,7 +9,7 @@ class Song extends Model
 {
     use SoftDeletes;
     protected $fillable = [
-        'name', 'youtube_id', 'user_id',
+        'name', 'youtube_id', 'user_id', 'singer_id', 
     ];
 
     protected $dates = [
@@ -18,12 +18,17 @@ class Song extends Model
 
     public function singer()
     {
-        return $this->belongsTo(Song::class);
+        return $this->belongsTo(Singer::class);
     }
 
     public function lyrics()
     {
         return $this->hasMany(Lyric::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function getOriginalLyricAttribute()
@@ -44,8 +49,8 @@ class Song extends Model
         return $this->belongsToMany(User::class);
     }
 
-    public function searchSongs($request) {
-        return $this->where("name","LIKE","%$request%")->get();
+    public static function search($request) {
+        return Song::where("name","LIKE","%".$request."%")->get();
     }
 
 }

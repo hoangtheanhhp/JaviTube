@@ -1,54 +1,18 @@
 @extends('layouts.master')
 @section('content')
 @include('includes.header')
-<div class="new_arrivals">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h3><span>{{ $user->name }}</span></h3>
-                <h5><span>{{ $user->followed->count() }}<span> Follow</h5>
-                <h5><span>{{ $user->following->count() }}<span> Followers</h5>
-                @if ($user->isOwn())
-                    <a href="#" data-toggle="modal" data-target="#updateProfile">
-                        <span>Update profile</span>
-                    </a>
-                    <a href="#" data-toggle="modal" data-target="#changePassword">
-                        <span>Change Password</span>
-                    </a>
-                @else
-                    @if ($user->isFollowing()) 
-                        <a href="{{ route('users.follow', $user->id) }}">Following</a>
-                    @else 
-                        <a href="{{ route('users.follow', $user->id) }}">Follow</a>
-                    @endif
-                @endif
-            </div>
-            <div class="col-md-6">
-                <img class="img-thumbnail" width="100px" src="{{ asset('storage/avatar/'.$user->avatar) }}" alt="">
-            </div>
-        </div>
-    </div>
-</div>
-<div class="product-easy">
-    <div class="container">
-        <div class="sap_tabs">
+<div class="container">
+   <div class="sap_tabs">
             <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
                 <ul class="resp-tabs-list">
-                    <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Latest Designs</span></li>
-                    <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Special Offers</span></li>
-                    <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>Collections</span></li>
+                    <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Singer</span></li>
+                    <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Song</span></li>
+                    <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>User</span></li>
                 </ul>
                 <div class="resp-tabs-container">
                     <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
                         <div class="row">
-                            <div class="col-md-3 product-video">
-                                <div class="video post">
-                                    <a href="#" data-toggle="modal" data-target="#modalPostVideo">
-                                        <img src="{{ asset('/images/plus.png') }}">
-                                    </a>
-                                </div>
-                            </div>
-                            @foreach($myPosts as $song)
+                            @foreach($songs as $song)
                                 <div class="col-md-3 product-video">
                                 <div class="video">
                                     <div class="video-image">
@@ -369,47 +333,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
-@include('modal.user-update')
-@include('modal.post-video')
-@include('modal.change-password')
 @include('includes.footer')
-@endsection
-
-@section('script')
-    @parent
-    <script>
-        $(document).ready(function() {     
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $('.action-follow').click(function(){    
-                var user_id = $(this).data('id');
-                var cObj = $(this);
-                var c = $(this).parent("div").find(".tl-follower").text();
-
-
-                $.ajax({
-                   type:'POST',
-                   url:'/ajaxRequest',
-                   data:{user_id:user_id},
-                   success:function(data){
-                      console.log(data.success);
-                      if(jQuery.isEmptyObject(data.success.attached)){
-                        cObj.find("strong").text("Follow");
-                        cObj.parent("div").find(".tl-follower").text(parseInt(c)-1);
-                      }else{
-                        cObj.find("strong").text("UnFollow");
-                        cObj.parent("div").find(".tl-follower").text(parseInt(c)+1);
-                      }
-                   }
-                });
-            });      
-            
-        }); 
-    </script>
 @endsection
