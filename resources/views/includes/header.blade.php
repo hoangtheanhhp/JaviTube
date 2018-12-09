@@ -28,8 +28,8 @@
 		@if (!Auth::check())
 		<div class="col-md-3 header-right footer-bottom">
 			<ul>
-				<li><a href="#" class="use1" data-toggle="modal" data-target="#myModal4"><span>Login</span></a></li>
-				<li><a href="#" class="use1" data-toggle="modal" data-target="#myModal5"><span>Login</span></a></li>
+				<li><a href="#" class="use1" data-toggle="modal" data-target="#myModal4"><span>Sign in</span></a></li>
+				<li><a href="#" class="use1" data-toggle="modal" data-target="#myModal5"><span>Sign up</span></a></li>
 			</ul>
 		</div>
 		@else
