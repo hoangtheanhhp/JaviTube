@@ -1145,6 +1145,8 @@ img {
   -webkit-transition: all .2s ease-in-out;
        -o-transition: all .2s ease-in-out;
           transition: all .2s ease-in-out;
+
+  margin-left: 40%;
 }
 .img-circle {
   border-radius: 50%;
@@ -1595,7 +1597,7 @@ pre code {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 1200px;
   }
 }
 .container-fluid {
