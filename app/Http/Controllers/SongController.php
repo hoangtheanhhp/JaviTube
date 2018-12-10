@@ -74,12 +74,24 @@ class SongController extends Controller
         $user->like()->attach($song);
         return redirect()->back();
     }
+    public function liked($id)
+    {
+        $song = Song::findOrFail($id);
+        $user = Auth::user();
+        if ($user->liked($id)) return "1";
+        else return "0";
+    }
     public function unlike($id)
     {
         $song = Song::findOrFail($id);
         Auth::user()->like()->detach($song);
        return redirect()->back();
     }
+    public function like_num($id)
+    {
+        $song = Song::findOrFail($id);
+        return $song->be_liked()->count();
+    }    
 
     
 }
