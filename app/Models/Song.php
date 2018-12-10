@@ -46,7 +46,7 @@ class Song extends Model
     }
     public function be_liked()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'like');
     }
 
     public static function search($request) {
