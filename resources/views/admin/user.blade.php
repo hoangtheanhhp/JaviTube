@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
     @include('includes.top-nav')
-    <div class="container">
-        <table class="table-user table" style="margin: 40px;">
+    <div class="container custom-page">
+        <table class="table-user table" style="margin: 70px;">
             <thead>
                 <tr>
                 <th scope="col">Name</th>

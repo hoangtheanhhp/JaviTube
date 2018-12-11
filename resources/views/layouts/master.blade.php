@@ -4,6 +4,9 @@
 <title>Smart Shop a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
 <!-- for-mobile-apps -->
 <style>
+	.custom-page{
+		height: 600px;
+	}
 	.table-user > thead > tr > th{
 		color: black !important;
 	}
@@ -11,6 +14,20 @@
 		background-color: #FDA30E;
 		color: white;
 	}
+	.singer-form{
+		margin: 70px;
+		margin-left: 20%;
+		width: 70%;
+	}
+	.btn-primary{
+		background-color: #FDA30E !important;
+		border-color: white !important;
+		margin-left:48%;
+	}
+	.footer{
+		padding-bottom: 0px !important;
+	}
+	
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
