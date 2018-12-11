@@ -4,29 +4,30 @@
 <div class="new_arrivals">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <h3><span>{{ $user->name }}</span></h3>
-                <h5><span>{{ $user->followed->count() }}<span> Follow</h5>
-                    <h5><span>{{ $user->following->count() }}<span> Followers</h5>
-                        @if ($user->isOwn())
-                        <a href="#" data-toggle="modal" data-target="#updateProfile">
-                            <span>Update profile</span>
-                        </a>
-                        <a href="#" data-toggle="modal" data-target="#changePassword">
-                            <span>Change Password</span>
-                        </a>
-                        @else
-                        @if ($user->isFollowing()) 
+            <div class="col-md-5">
+                <img class="img-thumbnail" width="200px" src="{{ asset('storage/avatar/'.$user->avatar) }}" alt="thay đổi ảnh đại diện">
+            </div>
+            <div class="col-md-7"> 
+                <h3>{{ $user->name }}</h3>
+                <ul class="k9GMp "><!-- 
+                    <li class="Y8-fY "><span class="-nal3 "><span class="g47SY ">8</span> posts</span></li> -->
+                    <li class="Y8-fYa "><a class="-nal3 "><span class="g47SY " title="">{{ $user->followed->count() }}</span> followers</a></li>
+                    <li class="Y8-fYb "><a class="-nal3 "><span class="g47SY ">{{ $user->following->count() }}</span> following</a></li>
+                </ul>
+                @if ($user->isOwn())
+                    <a class= "aprofile" href="#" data-toggle="modal" data-target="#updateProfile">
+                        <span>Update profile</span>
+                    </a>
+                    <a class= "aprofile" href="#" data-toggle="modal" data-target="#changePassword">
+                        <span>Change Password</span>
+                    </a>
+                @else
+                    @if ($user->isFollowing()) 
                         <a href="{{ route('users.follow', $user->id) }}">Following</a>
                         @else 
                         <a href="{{ route('users.follow', $user->id) }}">Follow</a>
-                        @endif
-                        @endif
-                    </div>
-                    <div class="col-md-6">
-                        <img class="img-thumbnail" width="100px" src="{{ asset('storage/avatar/'.$user->avatar) }}" alt="">
-                    </div>
-                </div>
+                    @endif
+                @endif
             </div>
         </div>
         <div class="product-easy">
