@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="col-md-4 footer-left sign-gd-two">
 			
-		<h4>Store Information</h4>
+		<h4>Information</h4>
 					<ul>
 						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Address : 1234k Avenue, 4th block, <span>Newyork City.</span></li>
 						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email : <a href="mailto:info@example.com">info@example.com</a></li>

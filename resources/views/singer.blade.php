@@ -4,6 +4,20 @@
     @include('includes.top-nav')
     <div class="product-easy">
 	<div class="container">
+            <div class="row">
+                    <div class="col-md-6">
+                        <h3><span>{{ $singer->name }}</span></h3>
+                        <h5><span>{{ $singer->like->count() }}<span> Like</h5>
+                                @if ($singer->isLike())                                 
+                                <a href="{{ route('singer.unlike', $singer->id) }}">Unlike</a>
+                                @else 
+                                <a href="{{ route('singer.like', $singer->id) }}">Like</a>
+                                @endif
+                            </div>
+                            <div class="col-md-6">
+                                {{-- <img class="img-thumbnail" width="100px" src="{{ asset('storage/avatar/'.$user->avatar) }}" alt=""> --}}
+                            </div>
+                        </div>
         @foreach($songs as $song)
 		<div class="col-md-3 product-video">
                 <div class="video">
@@ -25,7 +39,6 @@
                                       </a>
                                     <ul class="dropdown-menu">
 										<li><a href="/users/{{$song->user->id}}">Post by {{$song->user->name}}</a></li>
-                                        {{-- <li><a href="/singers/{{$song->singer()->first()->id}}">Singer: {{$song->singer()->first()->id}}</a></li> --}}
                                     </ul>
                                     </div>
                                 </div>

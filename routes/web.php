@@ -20,6 +20,8 @@ Route::group(['prefix' => 'songs/', 'as' => 'songs.'], function() {
     Route::get('{id}', ['as' => 'show', 'uses' => 'SongController@show']);
     Route::get('{id}/like', ['as' => 'like', 'uses' => 'SongController@like']);
     Route::get('{id}/unlike', ['as' => 'unlike', 'uses' => 'SongController@unlike']);
+    Route::get('{id}/liked', ['as' => 'liked', 'uses' => 'SongController@liked']);    
+    Route::get('{id}/like_num', ['as' => 'like_num', 'uses' => 'SongController@like_num']);    
 });
 Route::group(['prefix' => 'admin/','as' =>'admin.','middleware'=>'admin'], function () {
     Route::get('/', ['as' => 'home', 'uses' => 'Admin\UserController@index']);

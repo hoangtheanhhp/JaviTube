@@ -15,12 +15,35 @@ class UserController extends Controller
 {
     public function index($id) {
     	$user = User::findOrFail($id);
-        $myPosts = Song::all();
+        $myPosts = $user->song;
+        $fols= $user->followed->all();
+        $folPosts = [];
+        foreach ($fols as $fol) {
+            $songs = $fol->song->all();
+            foreach ($songs as $song){
+                if (!in_array($song,$folPosts,true)) array_push($folPosts,$song);
+            }
+        }
+        $singerPosts = [];
+        // $user->likeSinger->each(function ($singer, $key) {
+        //     $singer->songs->each(function ($song, $key) {
+        //         if (!in_array($song,$singerPosts,true)) array_push($singerPosts,$song);
+        //     });
+        // });
+        $singers = $user->likeSinger->all();
+        foreach ($singers as $singer) {
+            $songs = $singer->songs->all();
+            foreach ($songs as $song){
+                if (!in_array($song,$singerPosts,true)) array_push($singerPosts,$song);
+            }
+        }
         $singers = Singer::all();
         $data = [
         	'user' => $user, 
             'myPosts' => $myPosts,
             'singers' => $singers,
+            'singerPosts' => $singerPosts,
+            'folPosts' => $folPosts,
 
         ];
         return view('profile.index', $data);

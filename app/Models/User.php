@@ -33,6 +33,10 @@ class User extends Authenticatable
     protected $dates = [
         'deleted_at', 'birthday'
     ];
+    public function song()
+    {
+        return $this->hasMany(Song::class);
+    }
 
     public function following()
     {
