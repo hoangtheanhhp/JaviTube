@@ -2,7 +2,7 @@
 <div class="footer">
 	<div class="container">
 		<div class="col-md-3 footer-left">
-			<h2><a href="index.html"><img src="images/logo3.jpg" alt=" " /></a></h2>
+			<h2><a href="index.html"><img src="{{ asset('images/logo3.jpg') }}" alt=" " /></a></h2>
 			<p>Neque porro quisquam est, qui dolorem ipsum quia dolor
 			sit amet, consectetur, adipisci velit, sed quia non 
 			numquam eius modi tempora incidunt ut labore 
