@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Singer extends Model
@@ -26,6 +27,11 @@ class Singer extends Model
     }
     public function like()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class,'likeSinger');
+    }
+    public function isLike()
+    {   $userid = Auth::user();
+        if (!$userid) return false;  
+        return $this->like->contains($userid);
     }
 }

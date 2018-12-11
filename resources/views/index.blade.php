@@ -28,18 +28,6 @@
                                             <div class="col-md-10">
                                             <h4><a href="https://www.youtube.com/watch?v={{ $song->youtube_id }}?t=0">{{ $song->name }}</a></h4>
                                             </div>
-                                            @if ($song->user->isOwn())
-                                                <div class="col-md-2">
-                                                    <div class="dropdown">
-                                                    <a class="dropdown-toggle" type="button" data-toggle="dropdown">&#8942;
-                                                      </a>
-                                                    <ul class="dropdown-menu">
-														<li><a href="/users/{{$song->user->id}}">Post by {{$song->user->name}}</a></li>
-                                                        {{-- <li><a href="/singers/{{$song->singer()->first()->id}}">Singer: {{$song->singer()->first()->id}}</a></li> --}}
-                                                    </ul>
-                                                    </div>
-                                                </div>
-                                            @endif
                                         </div>
                                     </div>
                                 </div>
