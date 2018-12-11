@@ -3,6 +3,15 @@
 <head>
 <title>Smart Shop a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
 <!-- for-mobile-apps -->
+<style>
+	.table-user > thead > tr > th{
+		color: black !important;
+	}
+	.btn-privilege{
+		background-color: #FDA30E;
+		color: white;
+	}
+</style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Smart Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
