@@ -43,3 +43,7 @@ Route::group(['prefix' => 'admin/','as' =>'admin.','middleware'=>'admin'], funct
         Route::post('/store', ['as' => 'store', 'uses' => 'Admin\SingerController@store']);
     });
 });
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');
+Route::get('messager', 'ChatsController@index');
+
