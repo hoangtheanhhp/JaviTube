@@ -53,4 +53,8 @@ class Song extends Model
         return Song::where("name","LIKE","%".$request."%")->get();
     }
 
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
+
 }
