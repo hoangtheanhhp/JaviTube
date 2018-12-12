@@ -22,11 +22,14 @@ class SingerController extends Controller
     public function store(Request $request)
     {
         $model = new Singer();
-            // ['name' => $request->name,'birthday'=> $request->birthday,'description' => $request->description]);
         $model->name = $request->name;
         $model->birthday = $request->birthday;
         $model->description = $request->description;
-        $model->avatar = 'a';
+        if ($request->hasFile('avatar')) {
+            $avatarName = $request->name.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+            $path = $request->avatar->storeAs('public/avatar',$avatarName);
+            $model->avatar = $avatarName;
+        }
         $model->save();
         return redirect()->back();
     }

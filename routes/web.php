@@ -3,6 +3,11 @@
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::Auth();
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::post('comments/store', ['as' => 'comments.store', 'uses' => 'CommentController@store']);
+});
+
 Route::group(['prefix' => 'users/', 'as' => 'users.' , 'middleware' => 'auth'], function() {
 	Route::get('{id}', ['as' => 'show', 'uses' => 'UserController@index']);
 	Route::put('update/{id}', ['as' => 'update', 'uses' => 'UserController@update']);

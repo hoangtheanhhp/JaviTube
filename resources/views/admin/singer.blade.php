@@ -3,9 +3,13 @@
     @include('includes.top-nav')
     <div class="container">
 
-        <form class="singer-form" action="{{ route('admin.singers.store') }}" method="post">
-            <div class="form-group"  >
+        <form class="singer-form" action="{{ route('admin.singers.store') }}" method="post" enctype="multipart/form-data">
             @csrf
+            <div class="form-group"  >
+                <label >Avatar</label>
+                <input class="form-control" type="file" name="avatar">
+            </div>            
+            <div class="form-group"  >
                 <label >Name</label>
                 <input class="form-control" type="text" name="name" placeholder="name">
             </div>
@@ -24,6 +28,7 @@
         <table class="table-user table" style="margin: 40px;">
             <thead>
                 <tr>
+                <th scope="col">Avatar</th>
                 <th scope="col">Name</th>
                 <th scope="col">Birthday</th>
                 <th scope="col">Description</th>
@@ -33,6 +38,7 @@
             <tbody>
             @foreach ($singers as $singer)
                 <tr>
+                    <td><img width="80px" src="{{ asset('storage/avatar/'.$singer->avatar) }}"></td>
                 <td>{{ $singer->name }}</td>
                 <td>{{ $singer->birthday }}</td>
                 <td>
