@@ -2,6 +2,7 @@
 @section('content')
 @include('includes.header')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 <div class="container">
     <div class="col-md-6">
       <div>
@@ -19,10 +20,16 @@
           @endif
 
           <span>{{ $song->be_liked->count() }} likes</span>
-    </div>
+      </div>
     <div>
-      <a id="like">like</a>
-      <a id="unlike">unlike</a>
+    <button class="button button-like" id="like">
+      <i class="fa fa-heart"></i>
+      <span>Like</span>
+    </button>
+    <button class="button button-like liked" id="unlike">
+      <i class="fa fa-heart"></i>
+      <span>Unlike</span>
+    </button>
       <h1>
         <div id="liked_number">
           {{\DB::table('like')->where('song_id',$song->id)->count()}} liked!!!
@@ -75,6 +82,8 @@
             $("#liked_number").text(data+" liked!!!")
           })
         }
+
+
       </script>
       @include('modal.sign-in')
       @include('includes.footer')
