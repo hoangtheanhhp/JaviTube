@@ -3,7 +3,7 @@
 @include('includes.header')
 <div class="new_arrivals">
     <div class="container">
-        <div class="row">
+        <div class="dat">
             <div class="col-md-5">
                 <img class="img-thumbnail" width="200px" src="{{ asset('storage/avatar/'.$user->avatar) }}" alt="thay đổi ảnh đại diện">
             </div>
@@ -44,10 +44,10 @@
                 <div class="resp-tabs-container">
                     <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
                         <div class="row">
-                            <div class="col-md-3 product-video">
-                                <div class="video post">
+                            <div class="col-md-3">
+                                <div class="music-plus">
                                     <a href="#" data-toggle="modal" data-target="#modalPostVideo">
-                                        <img src="{{ asset('/images/plus.png') }}">
+                                        <img src="{{ asset('/hinhanh/musicplus.png') }}" title="Add video">
                                     </a>
                                 </div>
                             </div>
@@ -88,10 +88,10 @@
                     </div>
                     <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
                         <div class="row">
-                            <div class="col-md-3 product-video">
-                                <div class="video post">
+                            <div class="col-md-3">
+                                <div class="music-plus">
                                     <a href="#" data-toggle="modal" data-target="#modalPostVideo">
-                                        <img src="{{ asset('/images/plus.png') }}">
+                                        <img src="{{ asset('/hinhanh/musicplus.png') }}" title="Add video">
                                     </a>
                                 </div>
                             </div>
@@ -132,10 +132,10 @@
                     </div>
                     <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
                         <div class="row">
-                            <div class="col-md-3 product-video">
-                                <div class="video post">
+                            <div class="col-md-3">
+                                <div class="music-plus">
                                     <a href="#" data-toggle="modal" data-target="#modalPostVideo">
-                                        <img src="{{ asset('/images/plus.png') }}">
+                                        <img src="{{ asset('/hinhanh/musicplus.png') }}" title="Add video">
                                     </a>
                                 </div>
                             </div>

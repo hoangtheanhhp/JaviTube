@@ -25,11 +25,6 @@ class UserController extends Controller
             }
         }
         $singerPosts = [];
-        // $user->likeSinger->each(function ($singer, $key) {
-        //     $singer->songs->each(function ($song, $key) {
-        //         if (!in_array($song,$singerPosts,true)) array_push($singerPosts,$song);
-        //     });
-        // });
         $singers = $user->likeSinger->all();
         foreach ($singers as $singer) {
             $songs = $singer->songs->all();

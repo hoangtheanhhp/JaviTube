@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLikeSingerTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateLikeSingerTable extends Migration
      */
     public function up()
     {
-        Schema::create('likeSinger', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
+            $table->increments('id');
+            $table->text('content');
             $table->integer('user_id');
-            $table->integer('singer_id');
-            $table->primary(['singer_id', 'user_id']);
+            $table->integer('song_id');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +29,6 @@ class CreateLikeSingerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('likeSinger');
+        Schema::dropIfExists('comments');
     }
 }
