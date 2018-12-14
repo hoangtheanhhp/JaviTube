@@ -15,7 +15,7 @@
                 <tr>
                 <td>{{ $user->name }}</td>
                 <td>
-                    <form action="users/{{$user->id}}" method="post">
+                <form action="{{route('admin.user.delete',$user->id)}}" method="post">
                         <input type="hidden" name="_method" value="PATCH" />
                             {{ csrf_field() }}
                             {{ method_field('PATCH') }}
@@ -24,7 +24,7 @@
                     </form>
                 </td>
                 <td>
-                    <form action="users/{{$user->id}}" method="post">
+                    <form action="{{route('admin.user.delete',$user->id)}}" method="post">
                         <input type="hidden" name="_method" value="DELETE" />
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
