@@ -3,7 +3,7 @@
 @include('includes.header')
 <div class="new_arrivals">
     <div class="container">
-        <div class="row">
+        <div class="dat">
             <div class="col-md-5">
                 <img class="img-thumbnail" width="200px" src="{{ asset('storage/avatar/'.$user->avatar) }}" alt="thay đổi ảnh đại diện">
             </div>
@@ -24,199 +24,200 @@
                 @else
                     @if ($user->isFollowing()) 
                         <a href="{{ route('users.follow', $user->id) }}">Following</a>
-                        @else 
+                    @else 
                         <a href="{{ route('users.follow', $user->id) }}">Follow</a>
                     @endif
                 @endif
             </div>
         </div>
-        <div class="product-easy">
-            <div class="container">
-                <div class="sap_tabs">
-                    <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-                        <ul class="resp-tabs-list">
-                            <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>User Post</span></li>
-                            <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>User follow</span></li>
-                            <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>User Like</span></li>
-                        </ul>
-                        <div class="resp-tabs-container">
-                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-                                <div class="row">
-                                    <div class="col-md-3 product-video">
-                                        <div class="video post">
-                                            <a href="#" data-toggle="modal" data-target="#modalPostVideo">
-                                                <img src="{{ asset('/images/plus.png') }}">
-                                            </a>
-                                        </div>
+    </div>
+</div>
+<div class="product-easy">
+    <div class="container">
+        <div class="sap_tabs">
+            <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                <ul class="resp-tabs-list">
+                    <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>User Post</span></li>
+                    <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>User follow</span></li>
+                    <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>User Like</span></li>
+                </ul>
+                <div class="resp-tabs-container">
+                    <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="music-plus">
+                                    <a href="#" data-toggle="modal" data-target="#modalPostVideo">
+                                        <img src="{{ asset('/hinhanh/musicplus.png') }}" title="Add video">
+                                    </a>
+                                </div>
+                            </div>
+                            @foreach($myPosts as $song)
+                            <div class="col-md-3 product-video">
+                                <div class="video">
+                                    <div class="video-image">
+                                        <a href="{{ route('songs.show', $song->id) }}">
+                                            <img src="http://img.youtube.com/vi/{{ $song->youtube_id }}/hqdefault.jpg" alt="{{ $song->name }}">
+                                            <img class="ic-play" src="{{ asset("images/ic_play.png") }}">
+                                            <span class="product-new-top">{{ $song->created_at->diffForHumans() }}</span>
+                                        </a>
                                     </div>
-                                    @foreach($myPosts as $song)
-                                    <div class="col-md-3 product-video">
-                                        <div class="video">
-                                            <div class="video-image">
-                                                <a href="{{ route('songs.show', $song->id) }}">
-                                                    <img src="http://img.youtube.com/vi/{{ $song->youtube_id }}/hqdefault.jpg" alt="{{ $song->name }}">
-                                                    <img class="ic-play" src="{{ asset("images/ic_play.png") }}">
-                                                    <span class="product-new-top">{{ $song->created_at->diffForHumans() }}</span>
-                                                </a>
+                                    <div class="video-info">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <h4><a href="https://www.youtube.com/watch?v={{ $song->youtube_id }}?t=0">{{ $song->name }}</a></h4>
                                             </div>
-                                            <div class="video-info">
-                                                <div class="row">
-                                                    <div class="col-md-10">
-                                                        <h4><a href="https://www.youtube.com/watch?v={{ $song->youtube_id }}?t=0">{{ $song->name }}</a></h4>
-                                                    </div>
-                                                    @if ($song->user->isOwn())
-                                                    <div class="col-md-2">
-                                                        <div class="dropdown">
-                                                            <a class="dropdown-toggle" type="button" data-toggle="dropdown">&#8942;
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li><a href="#">Edit</a></li>
-                                                                <li><a href="#">Remove</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    @endif
+                                            @if ($song->user->isOwn())
+                                            <div class="col-md-2">
+                                                <div class="dropdown">
+                                                    <a class="dropdown-toggle" type="button" data-toggle="dropdown">&#8942;
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Edit</a></li>
+                                                        <li><a href="#">Remove</a></li>
+                                                    </ul>
                                                 </div>
                                             </div>
+                                            @endif
                                         </div>
                                     </div>
-                                    @endforeach
                                 </div>
-                                <div class="clearfix"></div>
                             </div>
-                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-                                <div class="row">
-                                    <div class="col-md-3 product-video">
-                                        <div class="video post">
-                                            <a href="#" data-toggle="modal" data-target="#modalPostVideo">
-                                                <img src="{{ asset('/images/plus.png') }}">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    @foreach($folPosts as $song)
-                                    <div class="col-md-3 product-video">
-                                        <div class="video">
-                                            <div class="video-image">
-                                                <a href="{{ route('songs.show', $song->id) }}">
-                                                    <img src="http://img.youtube.com/vi/{{ $song->youtube_id }}/hqdefault.jpg" alt="{{ $song->name }}">
-                                                    <img class="ic-play" src="{{ asset("images/ic_play.png") }}">
-                                                    <span class="product-new-top">{{ $song->created_at->diffForHumans() }}</span>
-                                                </a>
-                                            </div>
-                                            <div class="video-info">
-                                                <div class="row">
-                                                    <div class="col-md-10">
-                                                        <h4><a href="https://www.youtube.com/watch?v={{ $song->youtube_id }}?t=0">{{ $song->name }}</a></h4>
-                                                    </div>
-                                                    @if ($song->user->isOwn())
-                                                    <div class="col-md-2">
-                                                        <div class="dropdown">
-                                                            <a class="dropdown-toggle" type="button" data-toggle="dropdown">&#8942;
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li><a href="#">Edit</a></li>
-                                                                <li><a href="#">Remove</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-                                <div class="row">
-                                    <div class="col-md-3 product-video">
-                                        <div class="video post">
-                                            <a href="#" data-toggle="modal" data-target="#modalPostVideo">
-                                                <img src="{{ asset('/images/plus.png') }}">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    @foreach($singerPosts as $song)
-                                    <div class="col-md-3 product-video">
-                                        <div class="video">
-                                            <div class="video-image">
-                                                <a href="{{ route('songs.show', $song->id) }}">
-                                                    <img src="http://img.youtube.com/vi/{{ $song->youtube_id }}/hqdefault.jpg" alt="{{ $song->name }}">
-                                                    <img class="ic-play" src="{{ asset("images/ic_play.png") }}">
-                                                    <span class="product-new-top">{{ $song->created_at->diffForHumans() }}</span>
-                                                </a>
-                                            </div>
-                                            <div class="video-info">
-                                                <div class="row">
-                                                    <div class="col-md-10">
-                                                        <h4><a href="https://www.youtube.com/watch?v={{ $song->youtube_id }}?t=0">{{ $song->name }}</a></h4>
-                                                    </div>
-                                                    @if ($song->user->isOwn())
-                                                    <div class="col-md-2">
-                                                        <div class="dropdown">
-                                                            <a class="dropdown-toggle" type="button" data-toggle="dropdown">&#8942;
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li><a href="#">Edit</a></li>
-                                                                <li><a href="#">Remove</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
+                            @endforeach
                         </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="music-plus">
+                                    <a href="#" data-toggle="modal" data-target="#modalPostVideo">
+                                        <img src="{{ asset('/hinhanh/musicplus.png') }}" title="Add video">
+                                    </a>
+                                </div>
+                            </div>
+                            @foreach($folPosts as $song)
+                            <div class="col-md-3 product-video">
+                                <div class="video">
+                                    <div class="video-image">
+                                        <a href="{{ route('songs.show', $song->id) }}">
+                                            <img src="http://img.youtube.com/vi/{{ $song->youtube_id }}/hqdefault.jpg" alt="{{ $song->name }}">
+                                            <img class="ic-play" src="{{ asset("images/ic_play.png") }}">
+                                            <span class="product-new-top">{{ $song->created_at->diffForHumans() }}</span>
+                                        </a>
+                                    </div>
+                                    <div class="video-info">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <h4><a href="https://www.youtube.com/watch?v={{ $song->youtube_id }}?t=0">{{ $song->name }}</a></h4>
+                                            </div>
+                                            @if ($song->user->isOwn())
+                                            <div class="col-md-2">
+                                                <div class="dropdown">
+                                                    <a class="dropdown-toggle" type="button" data-toggle="dropdown">&#8942;
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Edit</a></li>
+                                                        <li><a href="#">Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="music-plus">
+                                    <a href="#" data-toggle="modal" data-target="#modalPostVideo">
+                                        <img src="{{ asset('/hinhanh/musicplus.png') }}" title="Add video">
+                                    </a>
+                                </div>
+                            </div>
+                            @foreach($singerPosts as $song)
+                            <div class="col-md-3 product-video">
+                                <div class="video">
+                                    <div class="video-image">
+                                        <a href="{{ route('songs.show', $song->id) }}">
+                                            <img src="http://img.youtube.com/vi/{{ $song->youtube_id }}/hqdefault.jpg" alt="{{ $song->name }}">
+                                            <img class="ic-play" src="{{ asset("images/ic_play.png") }}">
+                                            <span class="product-new-top">{{ $song->created_at->diffForHumans() }}</span>
+                                        </a>
+                                    </div>
+                                    <div class="video-info">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <h4><a href="https://www.youtube.com/watch?v={{ $song->youtube_id }}?t=0">{{ $song->name }}</a></h4>
+                                            </div>
+                                            @if ($song->user->isOwn())
+                                            <div class="col-md-2">
+                                                <div class="dropdown">
+                                                    <a class="dropdown-toggle" type="button" data-toggle="dropdown">&#8942;
+                                                    </a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Edit</a></li>
+                                                        <li><a href="#">Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
         </div>
-        @include('modal.user-update')
-        @include('modal.post-video')
-        @include('modal.change-password')
-        @include('includes.footer')
-        @endsection
+    </div>
+</div>
+@include('modal.user-update')
+@include('modal.post-video')
+@include('modal.change-password')
+@include('includes.footer')
+@endsection
+
+@section('script')
+@parent
+<script>
+    $(document).ready(function() {     
         
-        @section('script')
-        @parent
-        <script>
-            $(document).ready(function() {     
-                
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('.action-follow').click(function(){    
+            var user_id = $(this).data('id');
+            var cObj = $(this);
+            var c = $(this).parent("div").find(".tl-follower").text();
+            
+            
+            $.ajax({
+                type:'POST',
+                url:'/ajaxRequest',
+                data:{user_id:user_id},
+                success:function(data){
+                    console.log(data.success);
+                    if(jQuery.isEmptyObject(data.success.attached)){
+                        cObj.find("strong").text("Follow");
+                        cObj.parent("div").find(".tl-follower").text(parseInt(c)-1);
+                    }else{
+                        cObj.find("strong").text("UnFollow");
+                        cObj.parent("div").find(".tl-follower").text(parseInt(c)+1);
                     }
-                });
-                $('.action-follow').click(function(){    
-                    var user_id = $(this).data('id');
-                    var cObj = $(this);
-                    var c = $(this).parent("div").find(".tl-follower").text();
-                    
-                    
-                    $.ajax({
-                        type:'POST',
-                        url:'/ajaxRequest',
-                        data:{user_id:user_id},
-                        success:function(data){
-                            console.log(data.success);
-                            if(jQuery.isEmptyObject(data.success.attached)){
-                                cObj.find("strong").text("Follow");
-                                cObj.parent("div").find(".tl-follower").text(parseInt(c)-1);
-                            }else{
-                                cObj.find("strong").text("UnFollow");
-                                cObj.parent("div").find(".tl-follower").text(parseInt(c)+1);
-                            }
-                        }
-                    });
-                });      
-                
-            }); 
-        </script>
-        @endsection
+                }
+            });
+        });      
         
+    }); 
+</script>
+@endsection

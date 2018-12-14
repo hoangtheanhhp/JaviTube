@@ -11,25 +11,25 @@ use DB;
 class User extends Authenticatable
 {
     use Notifiable;
-
+    
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
     protected $fillable = [
         'name', 'email', 'password', 'birthday', 'provider', 'provider_id'
     ];
-
+    
     /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+    * The attributes that should be hidden for arrays.
+    *
+    * @var array
+    */
     protected $hidden = [
         'password', 'remember_token',
     ];
-
+    
     protected $dates = [
         'deleted_at', 'birthday'
     ];
@@ -37,12 +37,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Song::class);
     }
-
+    
     public function following()
     {
         return $this->belongsToMany(User::class, 'following', 'followed_id', 'following_id');
     }
-
+    
     public function followed()
     {
         return $this->belongsToMany(User::class, 'following', 'following_id', 'followed_id');
@@ -56,7 +56,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Singer::class,'likeSinger');
     }
-
+    
     public function isOwn()
     {
         return $this->id === Auth::user()->id;
@@ -82,8 +82,18 @@ class User extends Authenticatable
         $follow =DB::table('following')->where('following_id', Auth::user()->id)->where('followed_id', $this->id)->first();
         return $follow;
     }
-
+    
     public static function search($request) {
         return User::where("name","LIKE","%".$request."%")->get();
     }
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+    
 }

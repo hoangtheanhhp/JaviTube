@@ -3,6 +3,11 @@
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::Auth();
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::post('comments/store', ['as' => 'comments.store', 'uses' => 'CommentController@store']);
+});
+
 Route::group(['prefix' => 'users/', 'as' => 'users.' , 'middleware' => 'auth'], function() {
 	Route::get('{id}', ['as' => 'show', 'uses' => 'UserController@index']);
 	Route::put('update/{id}', ['as' => 'update', 'uses' => 'UserController@update']);
@@ -43,3 +48,7 @@ Route::group(['prefix' => 'admin/','as' =>'admin.','middleware'=>'admin'], funct
         Route::post('/store', ['as' => 'store', 'uses' => 'Admin\SingerController@store']);
     });
 });
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');
+Route::get('messager', 'ChatsController@index');
+
