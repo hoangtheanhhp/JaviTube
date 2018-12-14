@@ -16,7 +16,6 @@ class CreateLikeSingerTable extends Migration
         Schema::create('likeSinger', function (Blueprint $table) {
             $table->integer('user_id');
             $table->integer('singer_id');
-            // $table->increments('id');
             $table->primary(['singer_id', 'user_id']);
         });
     }

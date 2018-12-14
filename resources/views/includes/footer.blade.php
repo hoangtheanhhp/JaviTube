@@ -13,7 +13,7 @@
 		<div class="col-md-8 footer-right">
 			<div class="clearfix"></div>
 			<div class>
-				<div class="col-md-7"><h2><a href="index.html"><img src="images/logo3.jpg" alt=" " /></a></h2>
+				<div class="col-md-7"><h2><a href="index.html"><img src="{{ asset('hinhanh/footer.png') }}" alt=" " /></a></h2>
 			<p>Neque porro quisquam est, qui dolorem ipsum quia dolor
 			sit amet, consectetur, adipisci velit, sed quia non 
 			numquam eius modi tempora incidunt ut labore 
@@ -26,7 +26,7 @@
 						<li><a href="single.html"><img src="https://scontent.fhan2-4.fna.fbcdn.net/v/t1.0-9/12106871_583655928440532_93649083947705630_n.jpg?_nc_cat=110&_nc_ht=scontent.fhan2-4.fna&oh=6b305cb42ad984bbe5c9f7c11e6bfb0e&oe=5C687437" alt=" " class="img-responsive" /></a></li>
 						<li><a href="single.html"><img src="https://scontent.fhan2-2.fna.fbcdn.net/v/t1.0-9/12289614_1644962122434020_3814741617269083942_n.jpg?_nc_cat=104&_nc_ht=scontent.fhan2-2.fna&oh=52a3a8ac15c9c9f46b1d4a62e89f4698&oe=5C9BFD2B" alt=" " class="img-responsive" /></a></li>
 						<li><a href="single.html"><img src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/48328488_1360275824181542_7699476472972443648_n.jpg?_nc_cat=102&_nc_ht=scontent.fhan2-1.fna&oh=7ced54be9ce784d100f21f8444536620&oe=5C998027" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.html"><img src="images/b15.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="single.html"><img src="{{ asset('images/b15.jpg') }}" alt=" " class="img-responsive" /></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>
