@@ -85,18 +85,21 @@ label{
     text-align: left;
 }
 .header-right {
-    text-align: center;
+	text-align: center;
 }
 ._1qv9 {
+	float: left;
     align-items: center;
     margin-top: 1%;
     display: flex;
     flex-direction: row;
 }
 ._1qv9 a { 
-    margin-left: 30%;
+    /* margin-left: 30%; */
     text-decoration: none;
-    width: 100%;
+	width: 100%;
+	color: orange;
+
 }
 .header-left{
     text-align: left;	
@@ -113,14 +116,29 @@ label{
 .header-bot {
     padding: 25px 0;
 }
+.header-right ul{
+	width: 100%;
+	margin: 15px 0;
+}
 .header-right ul li{
-	display:inline-block;
+	color: orange;
+	float: right;
 	margin:0 3px;
+	width:64px;
+	line-height: 32px;
 }
 .header-right ul li a{
-	width:32px;
+	width:100%;
 	height:32px;
 	display:block;
+	float: left;
+	text-decoration: none;
+	color: orange;;
+}
+.header-right ul li span{
+	margin-left: 5px;
+	height:32px;
+	float: left;
 }
 .header-right ul li a.use1{
 	background:url(../images/img-sp.png) no-repeat -133px -1px;
@@ -189,7 +207,8 @@ label{
 	padding:0;
 }
 .header-right ul {
-    margin-top: 20px;
+	/* margin-top: 20px; */
+	float: right;
 }
 .text_align {
   text-align: center;
@@ -435,7 +454,7 @@ a.simpleCart_empty {
     display: block;
 }
 .header-right ul li a:hover {
-    transform: rotateY(360deg);
+	cursor: pointer;
 }
 /*-- //banner-top --*/
 /*-- banner --*/
@@ -3805,7 +3824,7 @@ td.invert-image a img {
 	}
 	.header-right {
 		float: left;
-		width: 34%;
+		width: 30%;
 		padding-left: 8px;
 	}
 	.header-middle {
