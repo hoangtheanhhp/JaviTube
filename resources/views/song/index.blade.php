@@ -19,8 +19,7 @@
           @endif
 
           <span>{{ $song->be_liked->count() }} likes</span>
-        </div>
-      </div>
+      </div></div>
       <div class="col-md-6">
          <div class="horizontal-tab">
               <ul class="nav nav-tabs">
@@ -44,56 +43,21 @@
                 </div>
                 </div>
               </div>
-            </div>
+          </div>
       </div>
-      {{-- <div class="col-md-6">
-        <div class="row">
-          <div v-if="user">
-            <div class="col-sm-2">
-              <div class="thumbnail">
-                <img class="img-responsive user-photo" src="">
-              </div><!-- /thumbnail -->
-            </div><!-- /col-sm-1 -->
-
-            <div class="col-sm-10">
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <textarea id="commenttext" name="content" placeholder="How do you feel? Comment here!"></textarea>
-                </div>
-                <div class="panel-footer">
-                  <button class="btn btn-warning" @click.prevent="postComment">Comment</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div v-else>
-            <h4>You must be logged in to submit a comment!</h4> <a href="#" data-toggle="modal" data-target="#myModal4"><span>Login</span></a>
-          </div>
-
-          <div v-for="comment in comments">
-            <div class="col-sm-2">
-              <div class="thumbnail">
-                <img class="img-responsive user-photo" src="@{{ comment.user.avatar }}" alt="@{{ comment.user.name + ' Profile Picture' }}">
-              </div><!-- /thumbnail -->
-            </div><!-- /col-sm-1 -->
-
-            <div class="col-sm-10">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <strong>@{{comment.user.name}}</strong> <span class="text-muted">on @{{comment.created_at}}</span>
-                </div>
-                <div class="panel-body">
-                  @{{comment.body}}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> --}}
-      <div class="col-md-6">
-        <comments-manager></comments-manager
->      </div>
-    </div>
+    {{-- <div class="col-md-12 like-padding"> --}}
+      <div class="col-md-6 like-padding">
+        <button class="button button-like" id="like">
+          <i class="fa fa-heart"></i>
+          <span>Like</span>
+        </button>
+        <button class="button button-like liked" id="unlike">
+          <i class="fa fa-heart"></i>
+          <span>Unlike</span>
+        </button>
+      </div>
+     
+ </div>
 
 
 </div>

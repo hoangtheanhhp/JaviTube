@@ -1627,7 +1627,7 @@ a.single-item{
     font-weight: normal;
     background: none;
     border: 1px solid #E6E4E4;
-    color: #D2D1D1;
+    color: black;
     outline: none;
     font-size: 14px;  
     margin: 6px 0 17px 0px;
@@ -5290,7 +5290,8 @@ td.invert-image a img {
 	border: 2px solid #8a8a8a;
 	background-color: transparent;
 	text-decoration: none;
-	padding: 1rem;
+	padding: 10px;
+	margin: 10px 0;
 	position: relative;
 	vertical-align: middle;
 	text-align: center;
@@ -5360,5 +5361,26 @@ td.invert-image a img {
   .liked:hover .fa,
   .liked:hover span {
 	color: #fefefe;
+  }
+  .option-song{
+	  padding: 0px;
+	  margin-top: 20px;
+  }
+  #liked_number{
+	  margin-left: 100px;
+  }
+  .like-padding{
+	  padding: 0;
+  }
+  .copyright{
+	  padding-bottom: 10px;
+	  padding-top: 10px;
+  }
+  .comment{
+	  margin: 15px;
+	  width: 97%;
+  }
+  .label-comment{
+	  margin: 10px;
   }
 /*-- //responsive media queries --*/

@@ -37,12 +37,12 @@
         <div class="sap_tabs">
             <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
                 <ul class="resp-tabs-list">
-                    <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>User Post</span></li>
+                    <li class="active resp-tab-item" aria-controls="tab_item-0" role="tab"><span>User Post</span></li>
                     <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>User follow</span></li>
                     <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>User Like</span></li>
                 </ul>
                 <div class="resp-tabs-container">
-                    <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                    <div class="tab-1 resp-tab-content in active" aria-labelledby="tab_item-0">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="music-plus">
