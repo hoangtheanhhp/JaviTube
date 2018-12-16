@@ -29,24 +29,26 @@
 		</div>
 		@else
 			<div class="col-md-3" style="height:50px; line-height:50px">
-				<span class="_1qv9">
+				<div class="row">
+				<div class="_1qv9 col-md-8">
 					<a href="{{ route('users.show', Auth::user()->id) }}">
 					<img class="img img-responsive" width="30px" src="{{ asset('storage/avatar/'.Auth::user()->avatar) }}">
 					<span>{{ Auth::user()->name }}</span>
 					</a>
-				</span>
-				<div class="_1qv9" style="float:right;">
+				</div>
+				@if (Auth::user()->isAdmin()) 
+				<div class="_1qv9 col-md-2">
+					<a href="{{ route('admin.home') }}">Admin</a>
+				</div>
+				@endif
+				<div class="_1qv9 col-md-2">
 					<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 						@csrf
 					</form>
 				</div>
 			</div>
-			@if (Auth::user()->isAdmin()) 
-				<div>
-					<a href="{{ route('admin.home') }}">Admin</a>
-				</div>
-			@endif
+			</div>
 			
 		@endif
 		<div class="clearfix"></div>

@@ -22,18 +22,31 @@
         </div>
       </div>
       <div class="col-md-6">
-        <ul class="nav nav-tabs">
-            <li><a href="#originalLyric">Original</a></li>
-            <li><a href="#translation">Translation</a></li>
-        </ul>
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane fade in active" id="originalLyric"><p class="lyric">{{ $song->original_lyric }}</pre></div>
-            <div role="tabpanel" class="tab-pane fade" id="romajiLyric"><pre>{{ $song->vietnam_lyric }}</pre></div>
-            <div role="tabpanel" class="tab-pane fade" id="Events"></div>
-          </div>
-        </div>
+         <div class="horizontal-tab">
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab" aria-expanded="false">Original</a></li>
+                <li class=""><a href="#tab2" data-toggle="tab" aria-expanded="false">Translate</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade in active" id="tab1">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <pre class="lyric">{{ $song->original_lyric }}</pre>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="tab2">
+                  <div class="row">
+                    <div class="col-md-12 lyric">
+                      <pre class="lyric">{{ $song->vietnam_lyric }}</pre>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
       </div>
-      <div class="col-md-6">
+      {{-- <div class="col-md-6">
         <div class="row">
           <div v-if="user">
             <div class="col-sm-2">
@@ -76,7 +89,10 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
+      <div class="col-md-6">
+        <comments-manager></comments-manager
+>      </div>
     </div>
 
 
@@ -118,44 +134,5 @@
             $("#liked_number").text(data+" liked!!!")
           });
         }
-    </script>
-    <script>
-      const app = new Vue({
-          el: '#app',
-          data: {
-              comments: {},
-              commentBox: '',
-              song: {!! $song->toJson() !!},
-              user: {!! Auth::check() ? Auth::user()->toJson() : 'null' !!}
-          },
-          mounted() {
-              this.getComments();
-          },
-          methods: {
-              getComments() {
-                  axios.get('/api/songs/'+this.song.id+'/comments')
-                       .then((response) => {
-                           this.comments = response.data
-                       })
-                       .catch(function (error) {
-                           console.log(error);
-                       }
-                  );
-              },
-              postComment() {
-                  axios.post('/api/songs/'+this.song.id+'/comment', {
-                      api_token: this.user.api_token,
-                      body: this.commentBox
-                  })
-                  .then((response) => {
-                      this.comments.unshift(response.data);
-                      this.commentBox = '';
-                  })
-                  .catch((error) => {
-                      console.log(error);
-                  })
-              }
-          }
-      })
     </script>
 @endsection
