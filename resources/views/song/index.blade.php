@@ -19,9 +19,28 @@
           @endif
 
           <span>{{ $song->be_liked->count() }} likes</span>
-        </div>
+    </div>
+    <div class="col-md-12 like-padding">
+      <div class="col-md-6 like-padding">
+        <button class="button button-like" id="like">
+          <i class="fa fa-heart"></i>
+          <span>Like</span>
+        </button>
+        <button class="button button-like liked" id="unlike">
+          <i class="fa fa-heart"></i>
+          <span>Unlike</span>
+        </button>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 like-padding">
+        <h1>
+          <div id="liked_number">
+            {{\DB::table('like')->where('song_id',$song->id)->count()}} liked!!!
+          </div>
+          
+        </h1>
+      </div>
+    </div>
+    <div class="col-md-12 option-song">
         <ul class="nav nav-tabs">
             <li><a href="#originalLyric">Original</a></li>
             <li><a href="#translation">Translation</a></li>
@@ -33,23 +52,29 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6">
+    </div>
+
+      <div class="col-md-12">
         <div class="row">
           <div v-if="user">
             <div class="col-sm-2">
               <div class="thumbnail">
-                <img class="img-responsive user-photo" src="">
+                <img class="img-responsive user-photo" src="https://scontent.fhan2-4.fna.fbcdn.net/v/t1.0-9/12106871_583655928440532_93649083947705630_n.jpg?_nc_cat=110&_nc_ht=scontent.fhan2-4.fna&oh=6b305cb42ad984bbe5c9f7c11e6bfb0e&oe=5C687437">
               </div><!-- /thumbnail -->
             </div><!-- /col-sm-1 -->
 
             <div class="col-sm-10">
               <div class="panel panel-default">
-                <div class="panel-body">
-                  <textarea id="commenttext" name="content" placeholder="How do you feel? Comment here!"></textarea>
+              <form>
+                <div class="form-group">
+                  <label class="label-comment" for="comment">Comment:</label>
+                  <textarea class="form-control comment" rows="5" id="commenttext" name="content" placeholder="How do you feel? Comment here!"></textarea>
                 </div>
+
                 <div class="panel-footer">
                   <button class="btn btn-warning" @click.prevent="postComment">Comment</button>
                 </div>
+              </form>
               </div>
             </div>
           </div>
@@ -77,7 +102,6 @@
           </div>
         </div>
       </div>
-    </div>
 
 
 </div>
