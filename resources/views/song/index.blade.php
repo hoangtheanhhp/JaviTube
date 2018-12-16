@@ -45,7 +45,6 @@
               </div>
           </div>
       </div>
-    {{-- <div class="col-md-12 like-padding"> --}}
       <div class="col-md-6 like-padding">
         <button class="button button-like" id="like">
           <i class="fa fa-heart"></i>
@@ -56,11 +55,9 @@
           <span>Unlike</span>
         </button>
       </div>
-     
  </div>
 
 
-</div>
 @include('modal.sign-in')
 @include('includes.footer')
 @section('script')
