@@ -6,13 +6,12 @@
 */
 
 require('./bootstrap');
+import Vue from "vue"
+import App from "./App.vue"
 
-Vue.component('chat-messages', require('./components/ChatMessages.vue'));
-Vue.component('chat-form', require('./components/ChatForm.vue'));
-Vue.component('comments-manager', require('./components/CommentsManager.vue'));
 const app = new Vue({
     el: '#app',
-    
+    components: {App},
     data: {
         messages: []
     },

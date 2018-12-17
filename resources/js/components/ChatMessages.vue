@@ -4,11 +4,11 @@
             <div class="chat-body clearfix">
                 <div class="header">
                     <strong class="primary-font">
-                        {{ message.user.name }}
+                        2323
                     </strong>
                 </div>
                 <p>
-                    {{ message.message }}
+                    2323
                 </p>
             </div>
         </li>
@@ -17,6 +17,6 @@
 
 <script>
   export default {
-    props: ['messages']
+   // props: ['messages']
   };
 </script>
