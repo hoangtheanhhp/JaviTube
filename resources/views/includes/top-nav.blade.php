@@ -19,6 +19,7 @@
 					<li class=" menu__item"><a class="menu__link" href="{{ route("admin.song") }}">Song</a></li>
 					<li class=" menu__item"><a class="menu__link" href="{{ route("admin.users") }}">User</a></li>
 					<li class=" menu__item"><a class="menu__link" href="{{ route("admin.singers.index") }}">Singer</a></li>
+					<li class=" menu__item"><a class="menu__link" href="{{ route("admin.report.index") }}">Report</a></li>
 				  </ul>
 				</div>
 			  </div>

@@ -71,9 +71,11 @@
       });
       like_num();
       $.get("{{route('songs.liked',$song->id)}}",function(data,status){
-        if (data == true){
-          $("#unlike").hide();
-          $("#like").show();
+        console.log(data);
+        console.log(data == '1');
+        if (data == '1'){
+          $("#unlike").show();
+          $("#like").hide();
         } else{
           $("#unlike").hide();
           $("#like").show();

@@ -26,7 +26,7 @@ class ReportController extends Controller
     }
     public function remove($id)
     {
-        Report::detroy($id);
+        Report::destroy($id);
         return redirect()->back();
     }
     public function create(Request $request)
