@@ -9,7 +9,7 @@ require('./bootstrap');
 import Vue from 'vue';
 Vue.component('chat-messages', require('./components/ChatMessages.vue').default);
 Vue.component('chat-form', require('./components/ChatForm.vue').default);
-// Vue.component('comments-manager', require('./components/CommentsManager.vue'));
+Vue.component('comments-manager', require('./components/CommentsManager.vue').default);
 const app = new Vue({
     el: '#app',
     

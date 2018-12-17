@@ -5,7 +5,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::Auth();
 
 Route::group(['middleware' => 'auth'], function() {
-    Route::post('comments/store', ['as' => 'comments.store', 'uses' => 'CommentController@store']);
+    Route::post('comments', ['as' => 'comments.store', 'uses' => 'CommentController@store']);
+    Route::get('comments', ['as' => 'comments', 'uses' => 'CommentController@index']);
     Route::post('reports/store', ['as' => 'reports.store', 'uses' => 'ReportController@store']);
 });
 
