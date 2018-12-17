@@ -93,6 +93,4 @@
 	</div>
 </div>
     @include('includes.footer')
-    @include('modal.sign-in')
-    @include('modal.sign-up')
 @endsection
