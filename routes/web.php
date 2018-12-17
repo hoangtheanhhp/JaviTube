@@ -39,7 +39,7 @@ Route::group(['prefix' => 'admin/','as' =>'admin.','middleware'=>'admin'], funct
     Route::get('song', ['as' => 'song', 'uses' => 'Admin\SongController@index']);
     Route::delete('song/{id}', ['as' => 'songDelete', 'uses' => 'Admin\SongController@destroy']);
 
-    Route::get('users', ['as' => 'user', 'uses' => 'Admin\UserController@index']);
+    Route::get('users', ['as' => 'users', 'uses' => 'Admin\UserController@index']);
     Route::delete('users/{id}', ['as' => 'user.delete', 'uses' => 'Admin\UserController@destroy']);
     Route::patch('users/{id}', ['as' => 'user.admin', 'uses' => 'Admin\UserController@toAdmin']);
 
