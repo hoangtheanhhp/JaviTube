@@ -24,6 +24,7 @@ Route::group(['prefix' => 'songs/', 'as' => 'songs.'], function() {
     Route::post('store', ['as' => 'store', 'uses' => 'SongController@store']);
     Route::get('{id}', ['as' => 'show', 'uses' => 'SongController@show']);
     Route::get('{id}/like', ['as' => 'like', 'uses' => 'SongController@like']);
+    Route::post('/destroy', ['as' => 'destroy', 'uses' => 'SongController@destroy']);
     Route::get('{id}/unlike', ['as' => 'unlike', 'uses' => 'SongController@unlike']);
     Route::get('{id}/liked', ['as' => 'liked', 'uses' => 'SongController@liked']);    
     Route::get('{id}/like_num', ['as' => 'like_num', 'uses' => 'SongController@like_num']);    

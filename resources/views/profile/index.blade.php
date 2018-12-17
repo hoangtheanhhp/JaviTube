@@ -72,8 +72,7 @@
                                                     <a class="dropdown-toggle" type="button" data-toggle="dropdown">&#8942;
                                                     </a>
                                                     <ul class="dropdown-menu">
-                                                        <li><a href="#">Edit</a></li>
-                                                        <li><a href="#">Remove</a></li>
+                                                        <li><a onclick="submitDetailsForm({{ $song->id }})">Remove</a>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -173,6 +172,10 @@
                             @endforeach
                         </div>
                         <div class="clearfix"></div>
+                        <form action="{{ route('songs.destroy') }}" method="POST" id="formId">
+                            @csrf
+                            <input type="hidden" id="songId" name="id">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -187,6 +190,15 @@
 
 @section('script')
 @parent
+@section('script')
+<script language="javascript" type="text/javascript">
+    function submitDetailsForm(id) {
+        $("#songId").val(id);
+        $("#formId").submit();
+    }
+</script>
+@endsection
+
 <script>
     $(document).ready(function() {     
         

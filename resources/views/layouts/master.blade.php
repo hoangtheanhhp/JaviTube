@@ -21,6 +21,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
     @yield('content')
+    @include('modal.sign-in')
+    @include('modal.sign-up')
 </div>
 <!-- Bootstrap core JavaScript==================================================-->
 <script type="text/javascript" src="{{ asset("js/jquery-2.1.4.min.js") }}"></script>
