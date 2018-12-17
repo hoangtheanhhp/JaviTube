@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6 like-padding">
+    <div class="col-md-3 like-padding">
       <button class="button button-like" id="like">
         <i class="fa fa-heart"></i>
         <span>Like</span>
@@ -46,10 +46,13 @@
         <span>Unlike</span>
       </button>
     </div>
+    <div class="col-md-3">
+        <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalReportForm">Report</a>
+    </div>
   </div>
   
   
-  @include('modal.sign-in')
+  @include('modal.report-form')
   @include('includes.footer')
   @section('script')
   @if (Auth::check())
