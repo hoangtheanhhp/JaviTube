@@ -36,7 +36,7 @@ h1,h2,h3,h4,h5,h6{
 p{
 	margin:0;
 }
-p.lyric {
+pre.lyric {
   height: auto;
   max-height: 300px;
   overflow: auto;
@@ -85,18 +85,21 @@ label{
     text-align: left;
 }
 .header-right {
-    text-align: center;
+	text-align: center;
 }
 ._1qv9 {
+	float: left;
     align-items: center;
     margin-top: 1%;
     display: flex;
     flex-direction: row;
 }
 ._1qv9 a { 
-    margin-left: 30%;
+    /* margin-left: 30%; */
     text-decoration: none;
-    width: 100%;
+	width: 100%;
+	color: orange;
+
 }
 .header-left{
     text-align: left;	
@@ -113,14 +116,29 @@ label{
 .header-bot {
     padding: 25px 0;
 }
+.header-right ul{
+	width: 100%;
+	margin: 15px 0;
+}
 .header-right ul li{
-	display:inline-block;
+	color: orange;
+	float: right;
 	margin:0 3px;
+	width:64px;
+	line-height: 32px;
 }
 .header-right ul li a{
-	width:32px;
+	width:100%;
 	height:32px;
 	display:block;
+	float: left;
+	text-decoration: none;
+	color: orange;;
+}
+.header-right ul li span{
+	margin-left: 5px;
+	height:32px;
+	float: left;
 }
 .header-right ul li a.use1{
 	background:url(../images/img-sp.png) no-repeat -133px -1px;
@@ -189,7 +207,8 @@ label{
 	padding:0;
 }
 .header-right ul {
-    margin-top: 20px;
+	/* margin-top: 20px; */
+	float: right;
 }
 .text_align {
   text-align: center;
@@ -435,7 +454,7 @@ a.simpleCart_empty {
     display: block;
 }
 .header-right ul li a:hover {
-    transform: rotateY(360deg);
+	cursor: pointer;
 }
 /*-- //banner-top --*/
 /*-- banner --*/
@@ -1608,7 +1627,7 @@ a.single-item{
     font-weight: normal;
     background: none;
     border: 1px solid #E6E4E4;
-    color: #D2D1D1;
+    color: black;
     outline: none;
     font-size: 14px;  
     margin: 6px 0 17px 0px;
@@ -3805,7 +3824,7 @@ td.invert-image a img {
 	}
 	.header-right {
 		float: left;
-		width: 34%;
+		width: 30%;
 		padding-left: 8px;
 	}
 	.header-middle {
@@ -5243,42 +5262,125 @@ td.invert-image a img {
     margin: 5px auto 6px;
   }
 }
-
-.thumbnail {
-    padding:0px;
+.custom-page{
+	height: 600px;
 }
-.panel {
-  position:relative;
+.table-user > thead > tr > th{
+	color: black !important;
 }
-.panel>.panel-heading:after,.panel>.panel-heading:before{
-  position:absolute;
-  top:11px;left:-16px;
-  right:100%;
-  width:0;
-  height:0;
-  display:block;
-  content:" ";
-  border-color:transparent;
-  border-style:solid solid outset;
-  pointer-events:none;
+.btn-privilege{
+	background-color: #FDA30E;
+	color: white;
 }
-.panel>.panel-heading:after{
-  border-width:7px;
-  border-right-color:#f7f7f7;
-  margin-top:1px;
-  margin-left:2px;
+.singer-form{
+	margin: 70px;
+	margin-left: 20%;
+	width: 70%;
 }
-.panel>.panel-heading:before{
-  border-right-color:#ddd;
-  border-width:8px;
+.btn-primary{
+	background-color: #FDA30E !important;
+	border-color: white !important;
+	margin-left:48%;
 }
-.panel textarea {
-  border:none;
-  width: 100%;
-  resize:  none;
+.footer{
+	padding-bottom: 0px !important;
 }
 
-.panel textarea:focus {
-  outline: 0;
-}
+.button-like {
+	border: 2px solid #8a8a8a;
+	background-color: transparent;
+	text-decoration: none;
+	padding: 10px;
+	margin: 10px 0;
+	position: relative;
+	vertical-align: middle;
+	text-align: center;
+	display: inline-block;
+	border-radius: 3rem;
+	color: #8a8a8a;
+	transition: all ease 0.4s;
+	width: 90px;
+	outline: none;
+  }
+  
+  .button-like span {
+	margin-left: 0;
+  }
+  .button-like:focus{
+	background-color: none;
+  }
+  
+  .button-like .fa,
+  .button-like span {
+	transition: all ease 0.4s;
+  }
+  
+  .button-like:focus {
+	background-color: transparent;
+  }
+  
+  .button-like:focus .fa,
+  .button-like:focus span {
+	color: #8a8a8a;
+  }
+  
+  .button-like:hover {
+	border-color: #fda30e;
+	background-color: transparent;
+  }
+  
+  .button-like:hover .fa,
+  .button-like:hover span {
+	color: #fda30e;
+  }
+  
+  .liked {
+	background-color: #fda30e;
+	border-color: #fda30e;
+  }
+  
+  .liked .fa,
+  .liked span {
+	color: #fefefe;
+  }
+  
+  .liked:focus {
+	background-color: #fda30e;
+  }
+  
+  .liked:focus .fa,
+  .liked:focus span {
+	color: #fefefe;
+  }
+  
+  .liked:hover {
+	background-color: #fda30e;
+	border-color: #fda30e;
+  }
+  
+  .liked:hover .fa,
+  .liked:hover span {
+	color: #fefefe;
+  }
+  .option-song{
+	  padding: 0px;
+	  margin-top: 20px;
+  }
+  #liked_number{
+	  margin-left: 100px;
+  }
+  .like-padding{
+	  padding: 0;
+  }
+  .copyright{
+	  padding-bottom: 10px;
+	  padding-top: 10px;
+  }
+  .comment{
+	  margin: 15px;
+	  width: 97%;
+  }
+  .label-comment{
+	  margin: 10px;
+  }
 /*-- //responsive media queries --*/

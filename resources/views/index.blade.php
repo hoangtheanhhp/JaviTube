@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('content')
     @include('includes.header')
-    @include('includes.top-nav')
     <div class="product-easy">
 	<div class="container">
 		{{-- <div class="sap_tabs">
