@@ -16,7 +16,6 @@
         <link href="{{ asset("css/pignose.layerslider.css") }}" rel="stylesheet" type="text/css" media="all" />
         <script src="{{ asset('js/app.js') }}" defer></script>
         <!-- //pignose css -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset("css/style.css") }}" rel="stylesheet" type="text/css" media="all" />
         <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
@@ -36,8 +35,8 @@
 	<script type="text/javascript" src="{{ asset("js/bootstrap-3.1.1.min.js") }}"></script>
     <!-- //for bootstrap working -->
     <script src="{{ asset("js/jquery.easing.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("js/pignose.layerslider.js") }}"></script>
-    <script src="{{ asset("js/easyResponsiveTabs.js") }}" type="text/javascript"></script>
+    {{-- <script type="text/javascript" src="{{ asset("js/pignose.layerslider.js") }}"></script> --}}
+    <script src="{{ asset("js/easyResponsiveTabs.js") }}" type="text/javascript" defer></script>
     <script type="text/javascript" src="{{ asset("js/custom.js") }}"></script>
     <div id="app">
         <button class="open-button" onclick="openForm()">Chat</button>
