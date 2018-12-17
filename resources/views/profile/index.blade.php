@@ -37,12 +37,12 @@
         <div class="sap_tabs">
             <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
                 <ul class="resp-tabs-list">
-                    <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>User Post</span></li>
+                    <li class="active resp-tab-item" aria-controls="tab_item-0" role="tab"><span>User Post</span></li>
                     <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>User follow</span></li>
                     <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>User Like</span></li>
                 </ul>
                 <div class="resp-tabs-container">
-                    <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                    <div class="tab-1 resp-tab-content in active" aria-labelledby="tab_item-0">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="music-plus">
@@ -72,8 +72,7 @@
                                                     <a class="dropdown-toggle" type="button" data-toggle="dropdown">&#8942;
                                                     </a>
                                                     <ul class="dropdown-menu">
-                                                        <li><a href="#">Edit</a></li>
-                                                        <li><a href="#">Remove</a></li>
+                                                        <li><a onclick="submitDetailsForm({{ $song->id }})">Remove</a>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -173,6 +172,10 @@
                             @endforeach
                         </div>
                         <div class="clearfix"></div>
+                        <form action="{{ route('songs.destroy') }}" method="POST" id="formId">
+                            @csrf
+                            <input type="hidden" id="songId" name="id">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -187,6 +190,15 @@
 
 @section('script')
 @parent
+@section('script')
+<script language="javascript" type="text/javascript">
+    function submitDetailsForm(id) {
+        $("#songId").val(id);
+        $("#formId").submit();
+    }
+</script>
+@endsection
+
 <script>
     $(document).ready(function() {     
         

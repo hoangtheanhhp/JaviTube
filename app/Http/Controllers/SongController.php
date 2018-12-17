@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Song;
 use App\Models\Lyric;
 use App\Http\Requests\StoreSongRequest;
+use Illuminate\Http\Request;
 use DB;
 
 class SongController extends Controller
@@ -32,7 +33,7 @@ class SongController extends Controller
             }
             if ($request->lyric_vi) {
                 Lyric::create([
-                    'lyric' =>(int) $request->lyric_vi,
+                    'lyric' =>$request->lyric_vi,
                     'user_id' => Auth::user()->id,
                     'type' => Lyric::VI, 
                     'song_id' => $song->id, 
@@ -92,6 +93,11 @@ class SongController extends Controller
         $song = Song::findOrFail($id);
         return $song->be_liked()->count();
     }    
+
+    public function destroy(Request $request){
+        Song::destroy($request->id);
+        return redirect()->back();
+    }
 
     
 }
