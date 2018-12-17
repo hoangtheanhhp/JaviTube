@@ -51,5 +51,5 @@ Route::group(['prefix' => 'admin/','as' =>'admin.','middleware'=>'admin'], funct
 });
 Route::get('messages', 'ChatsController@fetchMessages');
 Route::post('messages', 'ChatsController@sendMessage');
-Route::get('messager', 'ChatsController@index');
+Route::get('messager',['as' => 'chat', 'uses' => 'ChatsController@index']);
 
