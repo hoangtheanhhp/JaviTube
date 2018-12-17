@@ -14,6 +14,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="{{ asset("css/bootstrap.css") }}" rel="stylesheet" type="text/css" media="all" />
 <!-- pignose css -->
 <link href="{{ asset("css/pignose.layerslider.css") }}" rel="stylesheet" type="text/css" media="all" />
+
 <!-- //pignose css -->
 <link href="{{ asset("css/style.css") }}" rel="stylesheet" type="text/css" media="all" />
 <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>

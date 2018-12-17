@@ -1754,81 +1754,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ChatForm.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ChatForm.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['user'],
-  data: function data() {
-    return {
-      newMessage: ''
-    };
-  },
-  methods: {
-    sendMessage: function sendMessage() {
-      this.$emit('messagesent', {
-        user: this.user,
-        message: this.newMessage
-      });
-      this.newMessage = '';
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ChatMessages.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ChatMessages.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['messages']
-});
-
-/***/ }),
-
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -16983,7 +16908,7 @@ var PusherConnector = function (_Connector) {
             return this.channels['presence-' + name];
         }
         /**
-         * Leave the given channel, as well as its private and presence variants.
+         * Leave the given channel.
          */
 
     }, {
@@ -16993,20 +16918,11 @@ var PusherConnector = function (_Connector) {
 
             var channels = [name, 'private-' + name, 'presence-' + name];
             channels.forEach(function (name, index) {
-                _this2.leaveChannel(name);
+                if (_this2.channels[name]) {
+                    _this2.channels[name].unsubscribe();
+                    delete _this2.channels[name];
+                }
             });
-        }
-        /**
-         * Leave the given channel.
-         */
-
-    }, {
-        key: 'leaveChannel',
-        value: function leaveChannel(name) {
-            if (this.channels[name]) {
-                this.channels[name].unsubscribe();
-                delete this.channels[name];
-            }
         }
         /**
          * Get the socket ID for the connection.
@@ -17120,7 +17036,7 @@ var SocketIoConnector = function (_Connector) {
             return this.channels['presence-' + name];
         }
         /**
-         * Leave the given channel, as well as its private and presence variants.
+         * Leave the given channel.
          */
 
     }, {
@@ -17130,20 +17046,11 @@ var SocketIoConnector = function (_Connector) {
 
             var channels = [name, 'private-' + name, 'presence-' + name];
             channels.forEach(function (name) {
-                _this2.leaveChannel(name);
+                if (_this2.channels[name]) {
+                    _this2.channels[name].unsubscribe();
+                    delete _this2.channels[name];
+                }
             });
-        }
-        /**
-         * Leave the given channel.
-         */
-
-    }, {
-        key: 'leaveChannel',
-        value: function leaveChannel(name) {
-            if (this.channels[name]) {
-                this.channels[name].unsubscribe();
-                delete this.channels[name];
-            }
         }
         /**
          * Get the socket ID for the connection.
@@ -17231,21 +17138,12 @@ var NullConnector = function (_Connector) {
       return new NullPresenceChannel();
     }
     /**
-     * Leave the given channel, as well as its private and presence variants.
+     * Leave the given channel.
      */
 
   }, {
     key: 'leave',
     value: function leave(name) {}
-    //
-
-    /**
-     * Leave the given channel.
-     */
-
-  }, {
-    key: 'leaveChannel',
-    value: function leaveChannel(name) {}
     //
 
     /**
@@ -46453,234 +46351,6 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ChatForm.vue?vue&type=template&id=6fb73fa7&":
-/*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ChatForm.vue?vue&type=template&id=6fb73fa7& ***!
-  \***********************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "input-group" }, [
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.newMessage,
-          expression: "newMessage"
-        }
-      ],
-      staticClass: "form-control input-sm",
-      attrs: {
-        id: "btn-input",
-        type: "text",
-        name: "message",
-        placeholder: "Type your message here..."
-      },
-      domProps: { value: _vm.newMessage },
-      on: {
-        keyup: function($event) {
-          if (
-            !("button" in $event) &&
-            _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-          ) {
-            return null
-          }
-          return _vm.sendMessage($event)
-        },
-        input: function($event) {
-          if ($event.target.composing) {
-            return
-          }
-          _vm.newMessage = $event.target.value
-        }
-      }
-    }),
-    _vm._v(" "),
-    _c("span", { staticClass: "input-group-btn" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary btn-sm",
-          attrs: { id: "btn-chat" },
-          on: { click: _vm.sendMessage }
-        },
-        [_vm._v("\n            Send\n        ")]
-      )
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ChatMessages.vue?vue&type=template&id=e422daa2&":
-/*!***************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ChatMessages.vue?vue&type=template&id=e422daa2& ***!
-  \***************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "ul",
-    { staticClass: "chat" },
-    _vm._l(_vm.messages, function(message) {
-      return _c("li", { staticClass: "left clearfix" }, [
-        _c("div", { staticClass: "chat-body clearfix" }, [
-          _c("div", { staticClass: "header" }, [
-            _c("strong", { staticClass: "primary-font" }, [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(message.user.name) +
-                  "\n                "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                " + _vm._s(message.message) + "\n            "
-            )
-          ])
-        ])
-      ])
-    }),
-    0
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode /* vue-cli only */
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/vue/dist/vue.common.js":
 /*!*********************************************!*\
   !*** ./node_modules/vue/dist/vue.common.js ***!
@@ -46690,7 +46360,7 @@ function normalizeComponent (
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
- * Vue.js v2.5.21
+ * Vue.js v2.5.20
  * (c) 2014-2018 Evan You
  * Released under the MIT License.
  */
@@ -49592,7 +49262,7 @@ function mountComponent (
   // component's mounted hook), which relies on vm._watcher being already defined
   new Watcher(vm, updateComponent, noop, {
     before: function before () {
-      if (vm._isMounted && !vm._isDestroyed) {
+      if (vm._isMounted) {
         callHook(vm, 'beforeUpdate');
       }
     }
@@ -50529,10 +50199,9 @@ function renderList (
       ret[i] = render(val[key], key, i);
     }
   }
-  if (!isDef(ret)) {
-    ret = [];
+  if (isDef(ret)) {
+    (ret)._isVList = true;
   }
-  (ret)._isVList = true;
   return ret
 }
 
@@ -51869,7 +51538,7 @@ Object.defineProperty(Vue, 'FunctionalRenderContext', {
   value: FunctionalRenderContext
 });
 
-Vue.version = '2.5.21';
+Vue.version = '2.5.20';
 
 /*  */
 
@@ -53527,7 +53196,7 @@ function genComponentModel (
 
   el.model = {
     value: ("(" + value + ")"),
-    expression: JSON.stringify(value),
+    expression: ("\"" + value + "\""),
     callback: ("function (" + baseValueExpression + ") {" + assignment + "}")
   };
 }
@@ -56146,7 +55815,7 @@ function processKey (el) {
         var parent = el.parent;
         if (iterator && iterator === exp && parent && parent.tag === 'transition-group') {
           warn$2(
-            "Do not use v-for index as key on <transition-group> children, " +
+            "Do not use v-for index as key on <transtion-group> children, " +
             "this is the same as not using keys."
           );
         }
@@ -57263,9 +56932,7 @@ function genChildren (
       el$1.tag !== 'template' &&
       el$1.tag !== 'slot'
     ) {
-      var normalizationType = checkSkip
-        ? state.maybeComponent(el$1) ? ",1" : ",0"
-        : "";
+      var normalizationType = checkSkip && state.maybeComponent(el$1) ? ",1" : "";
       return ("" + ((altGenElement || genElement)(el$1, state)) + normalizationType)
     }
     var normalizationType$1 = checkSkip
@@ -57949,8 +57616,8 @@ if (token) {
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
-  key: "b6a9e5cbbb1882de46ec",
-  cluster: "ap1",
+  key: "",
+  cluster: "mt1",
   encrypted: true
 });
 
@@ -57960,68 +57627,10 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
 /*!**********************************************!*\
   !*** ./resources/js/components/ChatForm.vue ***!
   \**********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ChatForm_vue_vue_type_template_id_6fb73fa7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChatForm.vue?vue&type=template&id=6fb73fa7& */ "./resources/js/components/ChatForm.vue?vue&type=template&id=6fb73fa7&");
-/* harmony import */ var _ChatForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChatForm.vue?vue&type=script&lang=js& */ "./resources/js/components/ChatForm.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ChatForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ChatForm_vue_vue_type_template_id_6fb73fa7___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ChatForm_vue_vue_type_template_id_6fb73fa7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/ChatForm.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/ChatForm.vue?vue&type=script&lang=js&":
-/*!***********************************************************************!*\
-  !*** ./resources/js/components/ChatForm.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ChatForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ChatForm.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/ChatForm.vue?vue&type=template&id=6fb73fa7&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/components/ChatForm.vue?vue&type=template&id=6fb73fa7& ***!
-  \*****************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatForm_vue_vue_type_template_id_6fb73fa7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ChatForm.vue?vue&type=template&id=6fb73fa7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ChatForm.vue?vue&type=template&id=6fb73fa7&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatForm_vue_vue_type_template_id_6fb73fa7___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatForm_vue_vue_type_template_id_6fb73fa7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
+throw new Error("Module build failed (from ./node_modules/vue-loader/lib/index.js):\nError: [vue-loader] vue-template-compiler must be installed as a peer dependency, or a compatible compiler implementation must be passed via options.\n    at loadTemplateCompiler (/home/anh/Documents/Project/src/node_modules/vue-loader/lib/index.js:21:11)\n    at Object.module.exports (/home/anh/Documents/Project/src/node_modules/vue-loader/lib/index.js:65:35)");
 
 /***/ }),
 
@@ -58029,68 +57638,10 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************!*\
   !*** ./resources/js/components/ChatMessages.vue ***!
   \**************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ChatMessages_vue_vue_type_template_id_e422daa2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChatMessages.vue?vue&type=template&id=e422daa2& */ "./resources/js/components/ChatMessages.vue?vue&type=template&id=e422daa2&");
-/* harmony import */ var _ChatMessages_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChatMessages.vue?vue&type=script&lang=js& */ "./resources/js/components/ChatMessages.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ChatMessages_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ChatMessages_vue_vue_type_template_id_e422daa2___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ChatMessages_vue_vue_type_template_id_e422daa2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/ChatMessages.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/ChatMessages.vue?vue&type=script&lang=js&":
-/*!***************************************************************************!*\
-  !*** ./resources/js/components/ChatMessages.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatMessages_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ChatMessages.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ChatMessages.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatMessages_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/ChatMessages.vue?vue&type=template&id=e422daa2&":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/components/ChatMessages.vue?vue&type=template&id=e422daa2& ***!
-  \*********************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatMessages_vue_vue_type_template_id_e422daa2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ChatMessages.vue?vue&type=template&id=e422daa2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ChatMessages.vue?vue&type=template&id=e422daa2&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatMessages_vue_vue_type_template_id_e422daa2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatMessages_vue_vue_type_template_id_e422daa2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
+throw new Error("Module build failed (from ./node_modules/vue-loader/lib/index.js):\nError: [vue-loader] vue-template-compiler must be installed as a peer dependency, or a compatible compiler implementation must be passed via options.\n    at loadTemplateCompiler (/home/anh/Documents/Project/src/node_modules/vue-loader/lib/index.js:21:11)\n    at Object.module.exports (/home/anh/Documents/Project/src/node_modules/vue-loader/lib/index.js:65:35)");
 
 /***/ }),
 
@@ -58112,8 +57663,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /mnt/tool/Project/JaviTube/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /mnt/tool/Project/JaviTube/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/anh/Documents/Project/src/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/anh/Documents/Project/src/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
