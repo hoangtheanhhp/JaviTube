@@ -4,6 +4,8 @@
     @foreach ($songs as $song)
     <ul>
         <li>song: {{ $song->name }}</li>
+        <li>user: {{ $song->user->name }}</li>
+        {{-- <li>singer: {{ $song->singer->name }}</li> --}}
         <li><form action="song/{{$song->id}}" method="post">
             <input type="hidden" name="_method" value="DELETE" />
                 {{ csrf_field() }}

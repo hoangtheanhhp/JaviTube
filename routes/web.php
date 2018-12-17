@@ -31,7 +31,7 @@ Route::group(['prefix' => 'songs/', 'as' => 'songs.'], function() {
 });
 Route::group(['prefix' => 'admin/','as' =>'admin.','middleware'=>'admin'], function () {
     Route::get('/', ['as' => 'home', 'uses' => 'Admin\UserController@index']);
-    Route::group(['prefix' => 'report/','as' => '.report'], function () {
+    Route::group(['prefix' => 'report/','as' => 'report.'], function () {
         Route::get('/',['as' => 'index', 'uses' => 'ReportController@index']);
         Route::get('{id}', ['as' => 'show', 'uses' => 'ReportController@show']);
         Route::post('{id}/remove', ['as' => 'remove', 'uses' => 'ReportController@remove']);
@@ -40,8 +40,8 @@ Route::group(['prefix' => 'admin/','as' =>'admin.','middleware'=>'admin'], funct
     Route::delete('song/{id}', ['as' => 'songDelete', 'uses' => 'Admin\SongController@destroy']);
 
     Route::get('users', ['as' => 'users', 'uses' => 'Admin\UserController@index']);
-    Route::delete('users/{id}', ['as' => 'user', 'uses' => 'Admin\UserController@destroy']);
-    Route::patch('users/{id}', ['as' => 'user', 'uses' => 'Admin\UserController@toAdmin']);
+    Route::delete('users/{id}', ['as' => 'user.delete', 'uses' => 'Admin\UserController@destroy']);
+    Route::patch('users/{id}', ['as' => 'user.admin', 'uses' => 'Admin\UserController@toAdmin']);
 
     Route::group(['prefix' => 'singers', 'as' => 'singers.'], function () {
         Route::get('/', ['as' => 'index', 'uses' => 'Admin\SingerController@index']);
@@ -51,5 +51,5 @@ Route::group(['prefix' => 'admin/','as' =>'admin.','middleware'=>'admin'], funct
 });
 Route::get('messages', 'ChatsController@fetchMessages');
 Route::post('messages', 'ChatsController@sendMessage');
-Route::get('messager', 'ChatsController@index');
+Route::get('messager',['as' => 'chat', 'uses' => 'ChatsController@index']);
 
