@@ -75,7 +75,7 @@ class User extends Authenticatable
     }
     public function isAdmin()
     {
-        return $this->type===2;
+        return $this->type==2;
     }
     public function isFollowing()
     {

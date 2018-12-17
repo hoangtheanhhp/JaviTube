@@ -1,5 +1,5 @@
 <!-- resources/views/chat.blade.php -->
-<script src="https://vuejs.org/js/vue.js"></script>
+{{-- <script src="https://vuejs.org/js/vue.js"></script> --}}
 @extends('layouts.app')
 
 @section('content')

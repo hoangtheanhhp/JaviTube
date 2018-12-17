@@ -8,17 +8,10 @@
           <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $song->youtube_id }}?rel=0&autoplay=1&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
         <div>
-          @if (Auth::check())
-            @if (Auth::user()->liked($song->id))
-            <a href="{{route('songs.unlike',$song->id)}}">unlike</a>
-            @else
-            <a href="{{route('songs.like',$song->id)}}">like</a>
-            @endif
-          @else
-          <a href="#" data-toggle="modal" data-target="#myModal4"><span>Like</span></a> 
-          @endif
-
-          <span>{{ $song->be_liked->count() }} likes</span>
+        <a id="like">like</a>
+        <a id="unlike">unlike</a>
+        <div id="liked_number">
+          <span>{{ $song->be_liked->count() }} likes</span></div>
         </div>
       </div>
       <div class="col-md-6">
@@ -115,7 +108,7 @@
         
         function like_num() {
           $.get("{{route('songs.like_num',$song->id)}}",function(data,status){
-            $("#liked_number").text(data+" liked!!!")
+            $("#liked_number").text(data+" likes")
           });
         }
     </script>

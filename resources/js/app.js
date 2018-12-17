@@ -4,13 +4,12 @@
 * includes Vue and other libraries. It is a great starting point when
 * building robust, powerful web applications using Vue and Laravel.
 */
-
+import Vue from 'vue';
 require('./bootstrap');
 
-Vue.component('chat-messages', require('./components/ChatMessages.vue'));
-Vue.component('chat-form', require('./components/ChatForm.vue'));
-Vue.component('comments-manager', require('./components/CommentsManager.vue'));
-
+Vue.component('chat-messages', require('./components/ChatMessages.vue').default);
+Vue.component('chat-form', require('./components/ChatForm.vue').default);
+// Vue.component('comments-manager', require('./components/CommentsManager.vue'));
 const app = new Vue({
     el: '#app',
     
