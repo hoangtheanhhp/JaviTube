@@ -47,7 +47,7 @@
                             <div class="col-md-3">
                                 <div class="music-plus">
                                     <a href="#" data-toggle="modal" data-target="#modalPostVideo">
-                                        <img src="{{ asset('/hinhanh/musicplus.png') }}" title="Add video">
+                                        <img src="{{ asset('/logo/musicplus.png') }}" title="Add video">
                                     </a>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                             <div class="col-md-3">
                                 <div class="music-plus">
                                     <a href="#" data-toggle="modal" data-target="#modalPostVideo">
-                                        <img src="{{ asset('/hinhanh/musicplus.png') }}" title="Add video">
+                                        <img src="{{ asset('/logo/musicplus.png') }}" title="Add video">
                                     </a>
                                 </div>
                             </div>
@@ -135,7 +135,7 @@
                             <div class="col-md-3">
                                 <div class="music-plus">
                                     <a href="#" data-toggle="modal" data-target="#modalPostVideo">
-                                        <img src="{{ asset('/hinhanh/musicplus.png') }}" title="Add video">
+                                        <img src="{{ asset('/logo/musicplus.png') }}" title="Add video">
                                     </a>
                                 </div>
                             </div>
