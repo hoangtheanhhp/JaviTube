@@ -17,10 +17,9 @@
         @foreach ($reports as $report)
             <tr>
             <td>{{ $report->content }}</td>
-            <td>{{ $report->user->name }}</td>
-            <td>{{ $report->song->name }}</td>
-            <td>{{ $report->song->user->name }}</td>
-            {{-- <td>{{ $report->song->user->name }}</td> --}}
+            <td><a href="{{route("users.show",$report->user->id)}}"> {{ $report->user->name }}</td>
+            <td><a href="{{route("songs.show",$report->song->id)}}"> {{ $report->song->name }}</td>
+            <td><a href="{{route("users.show",$report->song->user->id)}}"> {{ $report->song->user->name }}</td>
             <td>
                 <form action="{{route('admin.report.remove',$report->id)}}" method="post">
                     <input type="hidden" name="_method" value="DELETE" />
@@ -31,7 +30,7 @@
                 </form>
             
             </td>
-            <td><form action="song/{{$report->id}}" method="post">
+            <td><form action="{{route('admin.report.removeall',$report->id)}}" method="post">
                 <input type="hidden" name="_method" value="DELETE" />
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}

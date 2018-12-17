@@ -36,6 +36,7 @@ Route::group(['prefix' => 'admin/','as' =>'admin.','middleware'=>'admin'], funct
         Route::get('/',['as' => 'index', 'uses' => 'ReportController@index']);
         Route::get('{id}', ['as' => 'show', 'uses' => 'ReportController@show']);
         Route::delete('{id}/remove', ['as' => 'remove', 'uses' => 'ReportController@remove']);
+        Route::delete('{id}/removeall', ['as' => 'removeall', 'uses' => 'ReportController@removeall']);
     });
     Route::get('song', ['as' => 'song', 'uses' => 'Admin\SongController@index']);
     Route::delete('song/{id}', ['as' => 'songDelete', 'uses' => 'Admin\SongController@destroy']);

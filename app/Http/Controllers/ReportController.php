@@ -29,6 +29,13 @@ class ReportController extends Controller
         Report::destroy($id);
         return redirect()->back();
     }
+    public function removeall($id)
+    {
+        $report = Report::findOrFail($id);
+        $report->song->delete();
+        Report::destroy($id);
+        return redirect()->back();
+    }
     public function store(Request $request)
     {
         $re = new Report();
