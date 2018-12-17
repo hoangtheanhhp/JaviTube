@@ -49,6 +49,18 @@
     <div class="col-md-3">
         <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalReportForm">Report</a>
     </div>
+    <div class="clearfix"></div>
+    <div class="col-md-6">
+      <div class="media">
+        <div class="media-left media-top">
+          <img src="{{ asset('/storage/avatar/'. $song->singer->avatar) }}" class="media-object" style="width:60px">
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">{{ $song->singer->name }}</h4>
+          <p>{{ $song->singer->description }}</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   
