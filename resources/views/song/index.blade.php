@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6 like-padding">
+    <div class="col-md-3 like-padding">
       <button class="button button-like" id="like">
         <i class="fa fa-heart"></i>
         <span>Like</span>
@@ -46,10 +46,25 @@
         <span>Unlike</span>
       </button>
     </div>
+    <div class="col-md-3">
+        <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalReportForm">Report</a>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-md-6">
+      <div class="media">
+        <div class="media-left media-top">
+          <img src="{{ asset('/storage/avatar/'. $song->singer->avatar) }}" class="media-object" style="width:60px">
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">{{ $song->singer->name }}</h4>
+          <p>{{ $song->singer->description }}</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   
-  @include('modal.sign-in')
+  @include('modal.report-form')
   @include('includes.footer')
   @section('script')
   @if (Auth::check())

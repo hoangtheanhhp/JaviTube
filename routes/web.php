@@ -6,6 +6,7 @@ Route::Auth();
 
 Route::group(['middleware' => 'auth'], function() {
     Route::post('comments/store', ['as' => 'comments.store', 'uses' => 'CommentController@store']);
+    Route::post('reports/store', ['as' => 'reports.store', 'uses' => 'ReportController@store']);
 });
 
 Route::group(['prefix' => 'users/', 'as' => 'users.' , 'middleware' => 'auth'], function() {

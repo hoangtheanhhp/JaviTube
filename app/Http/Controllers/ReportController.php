@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Report;
-
+use Illuminate\Support\Facades\Auth;
 class ReportController extends Controller
 {
     public function index()
@@ -29,7 +29,7 @@ class ReportController extends Controller
         Report::destroy($id);
         return redirect()->back();
     }
-    public function create(Request $request)
+    public function store(Request $request)
     {
         $re = new Report();
         if ($request->content){$re->content = $request->content;}
@@ -38,7 +38,7 @@ class ReportController extends Controller
         else {return redirect()->back();}
         $re->user_id = Auth::user()->id;
         $re->save();
-        redirect()->back();
+        return redirect()->back();
     }
     
 }
