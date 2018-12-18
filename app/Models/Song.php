@@ -20,6 +20,10 @@ class Song extends Model
     {
         return $this->belongsTo(Singer::class);
     }
+    public function report()
+    {
+        return $this->hasMany(Report::class);
+    }
 
     public function lyrics()
     {

@@ -5,7 +5,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::Auth();
 
 Route::group(['middleware' => 'auth'], function() {
-    Route::post('comments/store', ['as' => 'comments.store', 'uses' => 'CommentController@store']);
+    Route::post('comments', ['as' => 'comments.store', 'uses' => 'CommentController@store']);
+    Route::get('comments', ['as' => 'comments', 'uses' => 'CommentController@index']);
     Route::post('reports/store', ['as' => 'reports.store', 'uses' => 'ReportController@store']);
 });
 
@@ -35,7 +36,8 @@ Route::group(['prefix' => 'admin/','as' =>'admin.','middleware'=>'admin'], funct
     Route::group(['prefix' => 'report/','as' => 'report.'], function () {
         Route::get('/',['as' => 'index', 'uses' => 'ReportController@index']);
         Route::get('{id}', ['as' => 'show', 'uses' => 'ReportController@show']);
-        Route::post('{id}/remove', ['as' => 'remove', 'uses' => 'ReportController@remove']);
+        Route::delete('{id}/remove', ['as' => 'remove', 'uses' => 'ReportController@remove']);
+        Route::delete('{id}/removeall', ['as' => 'removeall', 'uses' => 'ReportController@removeall']);
     });
     Route::get('song', ['as' => 'song', 'uses' => 'Admin\SongController@index']);
     Route::delete('song/{id}', ['as' => 'songDelete', 'uses' => 'Admin\SongController@destroy']);

@@ -1,10 +1,8 @@
 <!-- resources/views/chat.blade.php -->
 {{-- <script src="https://vuejs.org/js/vue.js"></script> --}}
-@extends('layouts.app')
-
-@section('content')
+@extends('layouts.master')
+{{-- <div id="app">
 <button class="open-button" onclick="openForm()">Chat</button>
-
 <div class="chat-popup panel panel-default form-container" id="myForm">
   <div class="panel-heading">Chats</div>
   <div class="panel-body">
@@ -17,6 +15,7 @@
     ></chat-form>
   </div>
   <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+</div>
 </div>
 <script>
   function openForm() {
@@ -131,6 +130,4 @@
   /* Add some hover effects to buttons */
   .form-container .btn:hover, .open-button:hover {
     opacity: 1;}
-  </style>
-  @endsection
-  
+  </style> --}}
