@@ -19,8 +19,11 @@
                         <input type="hidden" name="_method" value="PATCH" />
                             {{ csrf_field() }}
                             {{ method_field('PATCH') }}
-                    
-                        <input type="submit" class="btn btn-privilege" value="Give admin privilege" />
+                        @if($user->type == 0)
+                            <input type="submit" class="btn" sty value="Give admin privilege" />
+                        @elseif($user->type == 2)
+                            <input type="submit" class="btn btn-admin" value="Admin" />      
+                        @endif
                     </form>
                 </td>
                 <td>
@@ -29,7 +32,7 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                     
-                        <input type="submit" class="btn btn-danger" value="delete" />
+                        <input type="submit" class="btn btn-danger" value="delete" onclick="return confirm('Are you sure?')" />
                     </form>
                 
                 </td>

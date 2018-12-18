@@ -22,7 +22,7 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                     
-                        <input type="submit" class="btn btn-danger" value="delete" />
+                        <input type="submit" class="btn btn-danger" value="delete" onclick="return confirm('Are you sure?')" />
                     </form>
                 
                 </td>

@@ -45,7 +45,7 @@
                     <p>{{$singer->description}}</p>
                 </td>
                 <td>
-                <form action="singer/{{ $singer->id }}" method="post">
+                <form action="{{route('admin.singers.destroy', $singer->id )}}" method="post">
                     @csrf
                     {{ method_field('DELETE') }}
                     <button class="btn btn-danger" type="submit">Delete</button>

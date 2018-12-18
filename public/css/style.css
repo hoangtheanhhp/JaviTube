@@ -5384,4 +5384,8 @@ td.invert-image a img {
   .label-comment{
 	  margin: 10px;
   }
+  .btn-admin{
+	  background-color: #3871A5;
+	  color: white;
+  }
 /*-- //responsive media queries --*/
