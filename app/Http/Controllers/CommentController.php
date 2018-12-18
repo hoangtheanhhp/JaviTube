@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Song;
+use App\Models\Song;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -15,8 +16,8 @@ class CommentController extends Controller
     public function store(Request $request, Song $song)
     {
         $comment = $song->comments()->create([
-            'body' => $request->body,
-            'user_id' => Auth::id()
+            'content' => $request->body,
+            'user_id' => Auth::id(),
         ]);
 
         $comment = Comment::where('id', $comment->id)->with('user')->first();

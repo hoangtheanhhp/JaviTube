@@ -26,7 +26,14 @@ class ReportController extends Controller
     }
     public function remove($id)
     {
-        Report::detroy($id);
+        Report::destroy($id);
+        return redirect()->back();
+    }
+    public function removeall($id)
+    {
+        $report = Report::findOrFail($id);
+        $report->song->delete();
+        Report::destroy($id);
         return redirect()->back();
     }
     public function store(Request $request)

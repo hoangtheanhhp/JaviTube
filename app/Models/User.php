@@ -37,7 +37,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Song::class);
     }
-    
+    public function report()
+    {
+        return $this->hasMany(Report::class);
+    }
     public function following()
     {
         return $this->belongsToMany(User::class, 'following', 'followed_id', 'following_id');
