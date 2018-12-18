@@ -1,7 +1,7 @@
 <!-- footer -->
 <div class="footer">
 	<div class="container">
-		<div class="col-md-4 footer-left sign-gd-two">
+		<div class="col-md-4 col-xs-12 footer-left sign-gd-two">
 			
 		<h4>Information</h4>
 					<ul>
@@ -10,16 +10,16 @@
 						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Phone : +1234 567 567</li>
 					</ul>
 		</div>
-		<div class="col-md-8 footer-right">
+		<div class="col-md-8 col-xs-12 footer-right">
 			<div class="clearfix"></div>
 			<div class>
-				<div class="col-md-7"><h2><a href="index.html"><img src="{{ asset('hinhanh/footer.png') }}" alt=" " /></a></h2>
+				<div class="col-md-7 col-xs-12"><h2><a href="/"><img src="{{ asset('hinhanh/footer.png') }}" alt=" " /></a></h2>
 			<p>Neque porro quisquam est, qui dolorem ipsum quia dolor
 			sit amet, consectetur, adipisci velit, sed quia non 
 			numquam eius modi tempora incidunt ut labore 
 			et dolore magnam aliquam quaerat voluptatem.</p>
 				</div>
-				<div class="col-md-5 sign-gd flickr-post">
+				<div class="col-md-5 col-xs-12 sign-gd flickr-post">
 					<h4>Team Admin</h4>
 					<ul>
 						<li><a href="single.html"><img src="https://scontent.fhan2-4.fna.fbcdn.net/v/t1.0-9/12106871_583655928440532_93649083947705630_n.jpg?_nc_cat=110&_nc_ht=scontent.fhan2-4.fna&oh=6b305cb42ad984bbe5c9f7c11e6bfb0e&oe=5C687437" alt=" " class="img-responsive" /></a></li>
@@ -33,6 +33,7 @@
 			</div>
 		</div>
 		<div class="clearfix"></div>
+		<p class="copyright" style="text-align: center" >&copy; Copyright 2018 LinuxFedora Team</p>
 	</div>
 </div>
 <!-- //footer -->

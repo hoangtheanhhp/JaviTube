@@ -2,7 +2,7 @@
 <div class="header-bot">
 	<div class="container">
 		<div class="col-md-3 header-left">
-			<h1><a href="index.html"><img src="{{ asset('hinhanh/logo.png') }}"></a></h1>
+			<h1><a href="/"><img src="{{ asset('hinhanh/logo.png') }}"></a></h1>
 		</div>
 		<div class="col-md-6 header-middle">
 			<form action="{{ route('search') }}" method="GET">
