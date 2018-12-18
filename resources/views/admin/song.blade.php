@@ -7,6 +7,7 @@
             <thead>
                 <tr>
                 <th scope="col">Name</th>
+                <th scope="col">User</th>
                 <th scope="col">Handle</th>
                 </tr>
             </thead>
@@ -14,6 +15,7 @@
             @foreach ($songs as $song)
                 <tr>
                 <td>{{ $song->name }}</td>
+                <td>{{$song->user->name}}</td>
                 <td>
                     <form action="song/{{$song->id}}" method="post">
                         <input type="hidden" name="_method" value="DELETE" />

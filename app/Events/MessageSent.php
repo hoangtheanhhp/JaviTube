@@ -4,7 +4,7 @@ namespace App\Events;
 
 // app/Events/MessageSent.php
 
-use App\User;
+use App\Models\User;
 use App\Models\Message;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
