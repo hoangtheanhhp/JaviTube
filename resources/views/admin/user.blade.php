@@ -6,7 +6,7 @@
             <thead>
                 <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Last</th>
+                <th scope="col">Status</th>
                 <th scope="col">Handle</th>
                 </tr>
             </thead>
@@ -20,7 +20,7 @@
                             {{ csrf_field() }}
                             {{ method_field('PATCH') }}
                         @if($user->type == 0)
-                            <input type="submit" class="btn" sty value="Give admin privilege" />
+                            <input type="submit" class="btn btn-privilege" sty value="Give admin privilege" />
                         @elseif($user->type == 2)
                             <input type="submit" class="btn btn-admin" value="Admin" />      
                         @endif
